@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holly Matthews | Design and Photography</title>
+
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#fff0f5;color:#111;overflow-x:hidden}
+.container{max-width:1100px;margin:auto;padding:20px}
+
+/* Video hero */
+.hero-video{position:relative;width:100%;height:60vh;overflow:hidden;border-radius:20px;margin-bottom:30px}
+.hero-video video{width:100%;height:100%;object-fit:cover;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;text-align:center;}
+.hero-overlay h1{font-size:3rem;margin:0}
+.hero-overlay p{font-size:1.2rem;margin-top:10px}
+
+/* Masonry gallery */
+.gallery{column-count:3;column-gap:12px}
+.gallery-item{position:relative;margin-bottom:12px;cursor:pointer;transition:transform .5s ease;background:#eee;min-height:200px;display:flex;align-items:center;justify-content:center}
+.gallery-item img{width:100%;border-radius:12px;display:block;box-shadow:0 6px 20px rgba(0,0,0,0.15);opacity:0;transition:opacity .5s ease}
+.overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent);color:#fff;border-radius:12px;opacity:0;display:flex;flex-direction:column;justify-content:flex-end;padding:10px;transition:.3s}
+.gallery-item:hover .overlay{opacity:1}
+@media(max-width:900px){.gallery{column-count:2}}
+@media(max-width:600px){.gallery{column-count:1}}
+
+/* Lightbox cinematic */
+.lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;display:none;align-items:center;justify-content:center;z-index:1000;transition:opacity .5s ease}
+.lightbox img{max-width:95%;max-height:95%;border-radius:12px;transition:transform .6s ease}
+
+/* Contact */
+.contact{background:#fff;padding:20px;border-radius:20px;box-shadow:0 8px 20px rgba(0,0,0,.15);text-align:center}
+.contact-form{display:grid;gap:10px;margin-top:10px}
+.contact input{padding:10px;border-radius:8px;border:1px solid #ccc}
+.contact button{padding:10px;border:none;border-radius:8px;background:#00b894;color:#fff;cursor:pointer}
+@media(min-width:768px){.contact-form{grid-template-columns:1fr 1fr auto}}
+
+/* Small Calendly */
+.booking{margin:20px 0;max-width:600px;height:400px;margin:auto;border-radius:12px;overflow:hidden}
+.booking iframe{width:100%;height:100%;border:none}
+/* override */
+.contact{margin-top: 30px}
+.booking{height:auto;}
+
+/* Scroll animations */
+.fade{opacity:0;transform:translateY(20px);transition:.6s}
+.fade.show{opacity:1;transform:none}
+
+.footer{text-align:center;color:#aaa;margin-top:40px}
+</style>
+</head>
+<body>
+
+<div class="container">
+<div class="hero-video fade">
+<video autoplay muted loop playsinline>
+<source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+</video>
+<div class="hero-overlay">
+<h1>Holly Matthews</h1>
+<p>Design and photography<br/>with a playful, modern edge</p>
+</div>
+</div>
+
+<div class="gallery" id="gallery">
+<!-- Gallery items populated via JS -->
+</div>
+
+<!-- ABOUT -->
+<!-- <section class="section">
+  <h2 class="fade">About</h2>
+  <p class="fade">I’m a multidisciplinary creative, blending design and photography.</p>
+</section> -->
+
+
+<div class="contact fade">
+<h3>Book a session</h3>
+<div class="contact-form">
+<input id="name" placeholder="Your name">
+<input id="email" placeholder="Your email">
+<button id="btn">Book now</button>
+</div>
+<p id="msg"></p>
+<div class="booking fade">
+<!-- <iframe src="https://calendly.com/your-calendly-link" title="Book a session"></iframe> -->
+</div>
+</div>
+
+<div class="footer">© 2026 Holly Matthews</div>
+</div>
+
+<div class="lightbox" id="lightbox"><img id="lightbox-img"></div>
+
+<script>
+// Scroll fade
+const obs=new IntersectionObserver(e=>{e.forEach(x=>x.isIntersecting&&x.target.classList.add('show'))});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+
+// Gallery images (16 images)
+const galleryImages=[
+'https://picsum.photos/400/500?1','https://picsum.photos/400/300?2','https://picsum.photos/400/600?3','https://picsum.photos/400/350?4',
+'https://picsum.photos/400/450?5','https://picsum.photos/400/550?6','https://picsum.photos/400/500?7','https://picsum.photos/400/400?8',
+'https://picsum.photos/400/520?9','https://picsum.photos/400/370?10','https://picsum.photos/400/480?11','https://picsum.photos/400/360?12',
+'https://picsum.photos/400/500?13','https://picsum.photos/400/400?14','https://picsum.photos/400/550?15'
+];
+const gallery=document.getElementById('gallery');
+galleryImages.forEach(src=>{
+const div=document.createElement('div');
+div.className='gallery-item';
+const img=document.createElement('img');
+img.src=src;
+img.onload=()=>img.style.opacity='1';
+div.appendChild(img);
+const overlay=document.createElement('div');
+overlay.className='overlay';
+overlay.innerHTML='<strong>Photo</strong><span>Artistic / Mood</span>';
+div.appendChild(overlay);
+gallery.appendChild(div);
+});
+
+// Lightbox
+const lb=document.getElementById('lightbox');
+const lbImg=document.getElementById('lightbox-img');
+let imgs=[...document.querySelectorAll('.gallery img')];
+let index=0;
+imgs.forEach((img,i)=>{img.onclick=()=>{index=i;show();}});
+function show(){lb.style.display='flex';lbImg.src=imgs[index].src}
+lb.onclick=()=>lb.style.display='none';
+let startX=0;
+lb.addEventListener('touchstart',e=>startX=e.touches[0].clientX);
+lb.addEventListener('touchend',e=>{let diff=e.changedTouches[0].clientX-startX;if(diff>50){index=(index-1+imgs.length)%imgs.length;show();}if(diff<-50){index=(index+1)%imgs.length;show();}});
+
+// Booking form
+const btn=document.getElementById('btn');
+const msg=document.getElementById('msg');
+btn.onclick=()=>{
+ let n=document.getElementById('name').value.trim();
+ let e=document.getElementById('email').value.trim();
+ if(!n)return msg.textContent='Enter name';
+ if(!e.includes('@'))return msg.textContent='Enter valid email';
+ msg.textContent='Sending...';
+ fetch('https://your-api-endpoint.com/book',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:n,email:e})})
+ .then(()=>msg.textContent='Thanks! I will contact you soon.')
+ .catch(()=>msg.textContent='Error');
+};
+</script>
+
+</body>
+</html>
+```
