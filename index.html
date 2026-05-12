@@ -119,7 +119,7 @@
   }
   .grid-item img {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
     display: block;
     border-radius: 12px;
@@ -259,10 +259,17 @@
 
 <script>
 const images = [
-  'images/page-01.png','images/page-02.png','images/page-03.png','images/page-04.png',
-  'images/page-05.png','images/page-06.png','images/page-07.png','images/page-08.png',
-  'images/page-09.png','images/page-10.png','images/page-11.png','images/page-12.png',
-  'images/page-13.png','images/page-14.png','images/page-15.png'
+  'images/webp/page-01_thumb.webp','images/webp/page-02_thumb.webp','images/webp/page-03_thumb.webp','images/webp/page-04_thumb.webp',
+  'images/webp/page-05_thumb.webp','images/webp/page-06_thumb.webp','images/webp/page-07_thumb.webp','images/webp/page-08_thumb.webp',
+  'images/webp/page-09_thumb.webp','images/webp/page-10_thumb.webp','images/webp/page-11_thumb.webp','images/webp/page-12_thumb.webp',
+  'images/webp/page-13_thumb.webp','images/webp/page-14_thumb.webp','images/webp/page-15_thumb.webp'
+];
+
+const imagesLarge = [
+  'images/webp/page-01_medium.webp','images/webp/page-02_medium.webp','images/webp/page-03_medium.webp','images/webp/page-04_medium.webp',
+  'images/webp/page-05_medium.webp','images/webp/page-06_medium.webp','images/webp/page-07_medium.webp','images/webp/page-08_medium.webp',
+  'images/webp/page-09_medium.webp','images/webp/page-10_medium.webp','images/webp/page-11_medium.webp','images/webp/page-12_medium.webp',
+  'images/webp/page-13_medium.webp','images/webp/page-14_medium.webp','images/webp/page-15_medium.webp'
 ];
 
 const grid = document.getElementById('grid');
@@ -271,8 +278,11 @@ images.forEach((src, i) => {
   item.className = 'grid-item';
   const img = document.createElement('img');
   img.src = src;
+  img.srcset = src.replace('_thumb','_thumb@2x') + ' 2x';
   img.alt = 'Design ' + (i + 1);
   img.loading = 'lazy';
+  img.width = 400;
+  img.height = 500;
   item.appendChild(img);
   item.addEventListener('click', () => openLightbox(i));
   grid.appendChild(item);
@@ -294,7 +304,8 @@ function closeLightbox() {
   document.body.style.overflow = '';
 }
 function updateLB() {
-  lbImg.src = images[current];
+  lbImg.src = imagesLarge[current];
+  lbImg.srcset = imagesLarge[current].replace('_medium','_medium@2x') + ' 2x';
   lbCounter.textContent = (current + 1) + ' / ' + images.length;
 }
 
