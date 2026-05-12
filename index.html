@@ -54,9 +54,7 @@
     color: var(--muted);
     max-width: 520px;
   }
-  .hero .contact {
-    margin-top: 2rem;
-  }
+  .hero .contact { margin-top: 2rem; }
   .hero .contact a {
     color: var(--accent);
     text-decoration: none;
@@ -73,10 +71,8 @@
     background: var(--accent);
     color: #000;
   }
-  .dl-btn {
-    border-color: var(--accent) !important;
-  }
-  .hero .scroll-hint {
+  .dl-btn { border-color: var(--accent) !important; }
+  .scroll-hint {
     position: absolute;
     bottom: 2rem;
     animation: bob 2s ease-in-out infinite;
@@ -103,8 +99,8 @@
     text-align: center;
   }
 
-  /* — Masonry Grid — */
-.grid {
+  /* — Grid — */
+  .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
@@ -117,30 +113,15 @@
     transition: transform .35s cubic-bezier(.25,.8,.25,1), box-shadow .35s;
     background: var(--surface);
   }
-  .grid-item img {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    display: block;
-    border-radius: 12px;
-  }
-  .grid-item {
-    break-inside: avoid;
-    margin-bottom: 1rem;
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform .35s cubic-bezier(.25,.8,.25,1), box-shadow .35s;
-    background: var(--surface);
-  }
   .grid-item:hover {
     transform: translateY(-4px) scale(1.015);
     box-shadow: 0 20px 60px rgba(0,0,0,.5);
   }
+  .grid-item picture,
   .grid-item img {
     width: 100%;
-    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
     display: block;
     border-radius: 12px;
   }
@@ -158,6 +139,7 @@
     transition: opacity .35s;
   }
   .lightbox.active { display: flex; opacity: 1; }
+  .lightbox picture,
   .lightbox img {
     max-width: 90vw;
     max-height: 90vh;
@@ -175,6 +157,7 @@
     border: none;
     line-height: 1;
     transition: color .2s;
+    z-index: 1001;
   }
   .lightbox .close:hover { color: var(--accent); }
   .lightbox .nav {
@@ -189,6 +172,7 @@
     padding: 1rem;
     transition: color .2s;
     user-select: none;
+    z-index: 1001;
   }
   .lightbox .nav:hover { color: #fff; }
   .lightbox .nav.prev { left: 1rem; }
@@ -201,6 +185,7 @@
     color: var(--muted);
     font-size: 0.85rem;
     letter-spacing: 0.05em;
+    z-index: 1001;
   }
 
   /* — Footer — */
@@ -214,9 +199,7 @@
   footer a { color: var(--accent); text-decoration: none; }
 
   /* — Responsive — */
-  @media (max-width: 900px) {
-    .grid { grid-template-columns: repeat(2, 1fr); }
-  }
+  @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 550px) {
     .grid { grid-template-columns: 1fr; }
     .section { padding: 4rem 1rem; }
@@ -247,7 +230,10 @@
   <button class="close" id="lbClose">&times;</button>
   <button class="nav prev" id="lbPrev">&#10094;</button>
   <button class="nav next" id="lbNext">&#10095;</button>
-  <img id="lbImg" src="" alt="">
+  <picture id="lbPicture">
+    <source id="lbSource" type="image/avif">
+    <img id="lbImg" src="" alt="">
+  </picture>
   <div class="counter" id="lbCounter"></div>
 </div>
 
@@ -258,38 +244,47 @@
 </footer>
 
 <script>
-const images = [
-  'images/webp/page-01_thumb.webp','images/webp/page-02_thumb.webp','images/webp/page-03_thumb.webp','images/webp/page-04_thumb.webp',
-  'images/webp/page-05_thumb.webp','images/webp/page-06_thumb.webp','images/webp/page-07_thumb.webp','images/webp/page-08_thumb.webp',
-  'images/webp/page-09_thumb.webp','images/webp/page-10_thumb.webp','images/webp/page-11_thumb.webp','images/webp/page-12_thumb.webp',
-  'images/webp/page-13_thumb.webp','images/webp/page-14_thumb.webp','images/webp/page-15_thumb.webp'
+const thumbs = [
+  'images/avif/page-01_thumb.avif','images/avif/page-02_thumb.avif','images/avif/page-03_thumb.avif',
+  'images/avif/page-04_thumb.avif','images/avif/page-05_thumb.avif','images/avif/page-06_thumb.avif',
+  'images/avif/page-07_thumb.avif','images/avif/page-08_thumb.avif','images/avif/page-09_thumb.avif',
+  'images/avif/page-10_thumb.avif','images/avif/page-11_thumb.avif','images/avif/page-12_thumb.avif',
+  'images/avif/page-13_thumb.avif','images/avif/page-14_thumb.avif','images/avif/page-15_thumb.avif'
 ];
 
-const imagesLarge = [
-  'images/webp/page-01_medium.webp','images/webp/page-02_medium.webp','images/webp/page-03_medium.webp','images/webp/page-04_medium.webp',
-  'images/webp/page-05_medium.webp','images/webp/page-06_medium.webp','images/webp/page-07_medium.webp','images/webp/page-08_medium.webp',
-  'images/webp/page-09_medium.webp','images/webp/page-10_medium.webp','images/webp/page-11_medium.webp','images/webp/page-12_medium.webp',
-  'images/webp/page-13_medium.webp','images/webp/page-14_medium.webp','images/webp/page-15_medium.webp'
+const mediums = [
+  'images/avif/page-01_medium.avif','images/avif/page-02_medium.avif','images/avif/page-03_medium.avif',
+  'images/avif/page-04_medium.avif','images/avif/page-05_medium.avif','images/avif/page-06_medium.avif',
+  'images/avif/page-07_medium.avif','images/avif/page-08_medium.avif','images/avif/page-09_medium.avif',
+  'images/avif/page-10_medium.avif','images/avif/page-11_medium.avif','images/avif/page-12_medium.avif',
+  'images/avif/page-13_medium.avif','images/avif/page-14_medium.avif','images/avif/page-15_medium.avif'
 ];
 
 const grid = document.getElementById('grid');
-images.forEach((src, i) => {
+thumbs.forEach((src, i) => {
   const item = document.createElement('div');
   item.className = 'grid-item';
+  const picture = document.createElement('picture');
+  const source = document.createElement('source');
+  source.type = 'image/avif';
+  source.srcset = src + ' 1x, ' + src.replace('_thumb','_thumb@2x') + ' 2x';
   const img = document.createElement('img');
-  img.src = src;
-  img.srcset = src.replace('_thumb','_thumb@2x') + ' 2x';
+  img.src = src.replace('.avif','.jpg');
+  img.srcset = src.replace('.avif','.jpg').replace('_thumb','_thumb@2x') + ' 2x';
   img.alt = 'Design ' + (i + 1);
   img.loading = 'lazy';
   img.width = 400;
   img.height = 500;
-  item.appendChild(img);
+  picture.appendChild(source);
+  picture.appendChild(img);
+  item.appendChild(picture);
   item.addEventListener('click', () => openLightbox(i));
   grid.appendChild(item);
 });
 
 let current = 0;
 const lb = document.getElementById('lightbox');
+const lbSource = document.getElementById('lbSource');
 const lbImg = document.getElementById('lbImg');
 const lbCounter = document.getElementById('lbCounter');
 
@@ -304,23 +299,22 @@ function closeLightbox() {
   document.body.style.overflow = '';
 }
 function updateLB() {
-  lbImg.src = imagesLarge[current];
-  lbImg.srcset = imagesLarge[current].replace('_medium','_medium@2x') + ' 2x';
-  lbCounter.textContent = (current + 1) + ' / ' + images.length;
+  lbSource.srcset = mediums[current] + ' 1x, ' + mediums[current].replace('_medium','_medium@2x') + ' 2x';
+  lbImg.src = mediums[current].replace('.avif','.jpg');
+  lbImg.srcset = mediums[current].replace('.avif','.jpg').replace('_medium','_medium@2x') + ' 2x';
+  lbCounter.textContent = (current + 1) + ' / ' + thumbs.length;
 }
 
 document.getElementById('lbClose').addEventListener('click', closeLightbox);
 document.getElementById('lbPrev').addEventListener('click', () => {
-  current = (current - 1 + images.length) % images.length;
+  current = (current - 1 + thumbs.length) % thumbs.length;
   updateLB();
 });
 document.getElementById('lbNext').addEventListener('click', () => {
-  current = (current + 1) % images.length;
+  current = (current + 1) % thumbs.length;
   updateLB();
 });
-lb.addEventListener('click', e => {
-  if (e.target === lb) closeLightbox();
-});
+lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
 document.addEventListener('keydown', e => {
   if (!lb.classList.contains('active')) return;
   if (e.key === 'Escape') closeLightbox();
