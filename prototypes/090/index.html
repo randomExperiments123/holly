@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holly Matthews — Stripes Portfolio</title>
+<meta name="description" content="Portfolio of Holly Matthews, graphic design student. Brand identity, editorial design, motion graphics, packaging, and digital illustration.">
+<meta property="og:title" content="Holly Matthews — Stripes Portfolio">
+<meta property="og:description" content="Portfolio of Holly Matthews, graphic design student. Brand identity, editorial design, motion graphics, packaging, and digital illustration.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hollymatthews.co.uk">
+<link rel="canonical" href="https://hollymatthews.co.uk">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23fff'/><text y='.9em' font-size='90' fill='%23000'>HM</text></svg>">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Helvetica Neue','Arial Narrow',sans-serif;background:#000;color:#fff;line-height:1.4;font-weight:800;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-transform:uppercase;letter-spacing:.05em}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.skip-link{position:absolute;top:-100%;left:0;z-index:100;padding:14px 28px;background:repeating-linear-gradient(45deg,#000 0,#000 4px,#ff4500 4px,#ff4500 8px);color:#fff;font-size:14px;font-weight:900}
+.skip-link:focus{top:0}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:60px;background:repeating-linear-gradient(90deg,#000 0,#000 6px,#ff4500 6px,#ff4500 12px);border-bottom:4px solid #fff}
+.nav-logo{font-size:20px;font-weight:900;color:#fff;letter-spacing:3px;text-shadow:-2px -2px 0 #ff4500,2px 2px 0 #000;background:repeating-linear-gradient(-45deg,transparent,transparent 4px,rgba(0,0,0,.3) 4px,rgba(0,0,0,.3) 8px);padding:4px 8px}
+.nav-links{display:flex;gap:20px}
+.nav-link{font-size:11px;font-weight:700;color:#fff;letter-spacing:.2em;padding:4px 10px;background:repeating-linear-gradient(0deg,#000 0,#000 2px,rgba(255,255,255,.1) 2px,rgba(255,255,255,.1) 4px);transition:all .2s}
+.nav-link:hover{background:repeating-linear-gradient(0deg,#ff4500 0,#ff4500 2px,#fff 2px,#fff 4px);color:#000}
+.hero{background:repeating-linear-gradient(0deg,#000 0,#000 16px,#fff 16px,#fff 32px);padding:150px 24px 90px;text-align:center;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0,transparent 40px,rgba(255,69,0,.15) 40px,rgba(255,69,0,.15) 48px);pointer-events:none}
+.hero-content{max-width:750px;margin:0 auto;position:relative;z-index:1;background:repeating-linear-gradient(-45deg,rgba(0,0,0,.9) 0,rgba(0,0,0,.9) 8px,rgba(0,0,0,.7) 8px,rgba(0,0,0,.7) 16px);padding:40px;border:4px solid #fff}
+.hero-eyebrow{font-size:12px;color:#ff4500;margin-bottom:16px;font-weight:500;letter-spacing:.4em;display:inline-block;padding:4px 16px;background:repeating-linear-gradient(90deg,#fff 0,#fff 2px,#000 2px,#000 4px);color:#000}
+.hero-title{font-size:clamp(40px,8vw,76px);font-weight:900;letter-spacing:-.03em;line-height:1.05;margin-bottom:12px;color:#fff;text-shadow:4px 4px 0 #ff4500,-2px -2px 0 #000}
+.hero-sub{font-size:clamp(13px,1.8vw,17px);color:#fff;line-height:1.5;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;font-weight:500;letter-spacing:.15em;padding:8px 16px;background:repeating-linear-gradient(45deg,rgba(255,69,0,.3) 0,rgba(255,69,0,.3) 4px,transparent 4px,transparent 8px)}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;background:repeating-linear-gradient(45deg,#fff 0,#fff 4px,#000 4px,#000 8px);color:#ff4500;font-size:13px;font-weight:900;letter-spacing:.15em;border:3px solid #fff;cursor:pointer;transition:all .2s;text-shadow:1px 1px 0 #000}
+.btn-primary:hover{background:repeating-linear-gradient(45deg,#ff4500 0,#ff4500 4px,#fff 4px,#fff 8px);color:#000}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;background:repeating-linear-gradient(0deg,transparent 0,transparent 4px,rgba(255,255,255,.1) 4px,rgba(255,255,255,.1) 8px);color:#fff;font-size:13px;font-weight:700;letter-spacing:.15em;border:3px solid #fff;transition:all .2s}
+.btn-ghost:hover{background:repeating-linear-gradient(0deg,#fff 0,#fff 4px,rgba(255,255,255,.1) 4px,rgba(255,255,255,.1) 8px);color:#000}
+.intro{background:repeating-linear-gradient(-45deg,#000 0,#000 12px,#fff 12px,#fff 24px);padding:80px 24px;text-align:center}
+.intro-content{max-width:700px;margin:0 auto;background:repeating-linear-gradient(0deg,rgba(0,0,0,.95) 0,rgba(0,0,0,.95) 8px,rgba(0,0,0,.8) 8px,rgba(0,0,0,.8) 16px);padding:40px;border:4px solid #ff4500}
+.section-label{font-size:11px;color:#ff4500;letter-spacing:.4em;margin-bottom:12px;font-weight:700;display:inline-block;padding:4px 16px;background:repeating-linear-gradient(90deg,#000 0,#000 3px,#fff 3px,#fff 6px)}
+.intro h2{font-size:clamp(20px,3vw,32px);font-weight:900;letter-spacing:-.01em;line-height:1.2;margin-bottom:20px;color:#fff}
+.intro p{font-size:15px;color:rgba(255,255,255,.7);line-height:1.6;font-weight:500;letter-spacing:.02em}
+.projects{padding:80px 24px;background:repeating-linear-gradient(90deg,#000 0,#000 24px,#ff4500 24px,#ff4500 28px,#000 28px,#000 52px)}
+.projects-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+@media(max-width:768px){.projects-grid{grid-template-columns:1fr;gap:20px}}
+.project{position:relative;cursor:pointer;overflow:hidden;background:repeating-linear-gradient(-45deg,#000 0,#000 6px,#222 6px,#222 12px);border:3px solid #fff;transition:all .3s}
+.project:nth-child(1){background:repeating-linear-gradient(0deg,#000 0,#000 8px,#222 8px,#222 16px)}
+.project:nth-child(2){background:repeating-linear-gradient(45deg,#000 0,#000 8px,#222 8px,#222 16px)}
+.project:nth-child(3){background:repeating-linear-gradient(90deg,#000 0,#000 8px,#222 8px,#222 16px)}
+.project:nth-child(4){background:repeating-linear-gradient(-45deg,#000 0,#000 8px,#222 8px,#222 16px)}
+.project:nth-child(5){background:repeating-linear-gradient(0deg,#000 0,#000 8px,#222 8px,#222 16px)}
+.project:hover{transform:scale(1.02);border-color:#ff4500}
+.project-image-area{position:relative;overflow:hidden;aspect-ratio:4/3}
+.project-image-area::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent 0,transparent 12px,rgba(255,69,0,.1) 12px,rgba(255,69,0,.1) 16px);pointer-events:none}
+.project-slides{display:flex;transition:transform .5s cubic-bezier(.25,.46,.45,.94);height:100%}
+.project-slide{flex:0 0 100%;width:100%;height:100%;object-fit:cover}
+.project-counter{position:absolute;bottom:12px;right:12px;background:repeating-linear-gradient(90deg,#000 0,#000 3px,#ff4500 3px,#ff4500 6px);color:#fff;font-size:10px;padding:6px 14px;font-weight:700;letter-spacing:.1em;border:2px solid #fff}
+.project-info{padding:20px 24px;border-top:3px solid #ff4500;background:repeating-linear-gradient(0deg,rgba(0,0,0,.9) 0,rgba(0,0,0,.9) 4px,rgba(0,0,0,.7) 4px,rgba(0,0,0,.7) 8px)}
+.project-number{font-size:10px;color:#ff4500;font-weight:700;letter-spacing:.25em;margin-bottom:4px;display:inline-block;padding:2px 10px;background:#000;border:1px solid #fff}
+.project-title{font-size:18px;font-weight:900;letter-spacing:-.01em;margin-bottom:8px;color:#fff;text-shadow:2px 2px 0 #ff4500}
+.project-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.5;font-weight:500;letter-spacing:.02em}
+.about{background:repeating-linear-gradient(45deg,#000 0,#000 16px,#111 16px,#111 32px);padding:80px 24px;text-align:center}
+.about-content{max-width:650px;margin:0 auto;background:repeating-linear-gradient(90deg,rgba(0,0,0,.95) 0,rgba(0,0,0,.95) 10px,rgba(0,0,0,.8) 10px,rgba(0,0,0,.8) 20px);padding:40px;border:4px solid #fff}
+.about h2{font-size:clamp(24px,3.5vw,40px);font-weight:900;letter-spacing:-.01em;margin-bottom:20px;color:#fff;text-shadow:3px 3px 0 #ff4500}
+.about-text{font-size:16px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:16px;font-weight:500}
+.contact{background:repeating-linear-gradient(-45deg,#000 0,#000 20px,#ff4500 20px,#ff4500 24px,#000 24px,#000 44px);padding:80px 24px;text-align:center}
+.contact-content{max-width:650px;margin:0 auto;background:repeating-linear-gradient(0deg,rgba(0,0,0,.95) 0,rgba(0,0,0,.95) 8px,rgba(0,0,0,.85) 8px,rgba(0,0,0,.85) 16px);padding:40px;border:4px solid #fff}
+.contact h2{font-size:clamp(24px,3.5vw,44px);font-weight:900;letter-spacing:-.01em;margin-bottom:20px;color:#fff;text-shadow:3px 3px 0 #ff4500}
+.contact-text{font-size:16px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:32px;font-weight:500}
+.footer{padding:32px 24px;text-align:center;color:rgba(255,255,255,.4);font-size:11px;background:repeating-linear-gradient(0deg,#000 0,#000 4px,#111 4px,#111 8px);border-top:4px solid #ff4500;letter-spacing:.1em}
+.footer a{color:#ff4500;font-weight:900}
+.lightbox{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+.lightbox[data-state=open]{opacity:1;pointer-events:auto}
+.lightbox-backdrop{position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(0,0,0,.95) 0,rgba(0,0,0,.95) 12px,rgba(0,0,0,.85) 12px,rgba(0,0,0,.85) 24px)}
+.lightbox-inner{position:relative;max-width:90vw;max-height:90vh;display:flex;flex-direction:column;align-items:center;z-index:1}
+.lightbox-close{position:fixed;top:20px;right:20px;width:48px;height:48px;border:3px solid #fff;background:repeating-linear-gradient(45deg,#000 0,#000 4px,#ff4500 4px,#ff4500 8px);color:#fff;font-size:22px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:all .2s;font-weight:900}
+.lightbox-close:hover{background:repeating-linear-gradient(45deg,#fff 0,#fff 4px,#ff4500 4px,#ff4500 8px);color:#000}
+.lightbox-nav{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;border:3px solid #fff;background:repeating-linear-gradient(0deg,#000 0,#000 4px,#ff4500 4px,#ff4500 8px);color:#fff;font-size:18px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:all .2s;font-weight:900}
+.lightbox-prev{left:20px}.lightbox-next{right:20px}
+.lightbox-nav:hover{background:repeating-linear-gradient(0deg,#fff 0,#fff 4px,#ff4500 4px,#ff4500 8px);color:#000}
+.lightbox-track{max-width:100%;max-height:80vh;overflow:hidden;border:4px solid #fff;background:#000}
+.lightbox-track img{max-width:100%;max-height:80vh;object-fit:contain}
+.lightbox-counter{color:#ff4500;font-size:11px;margin-top:12px;letter-spacing:.2em;font-weight:700;padding:4px 16px;background:#000;border:2px solid #fff}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="nav" role="banner">
+  <a href="#" class="nav-logo" aria-label="Holly Matthews home">Holly Matthews</a>
+  <div class="nav-links">
+    <a href="#work" class="nav-link">Work</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#contact" class="nav-link">Contact</a>
+    <a href="HollyMatthewsPortfolio.pdf" class="nav-link" download>Portfolio PDF</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Portfolio 2026</p>
+      <h1 class="hero-title">Holly Matthews</h1>
+      <p class="hero-sub">Graphic Design Student — brand identity, editorial, motion, packaging &amp; illustration</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn-primary">View the work</a>
+        <a href="HollyMatthewsPortfolio.pdf" class="btn-ghost" download>Download portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="intro-content">
+      <p class="section-label">Introduction</p>
+      <h2>A curated collection of projects exploring brand identity, editorial design, motion graphics, packaging, and digital illustration.</h2>
+      <p>Each project represents a different discipline within graphic design, showcasing a range of techniques, concepts, and creative processes developed during my studies.</p>
+    </div>
+  </section>
+
+  <section id="work" class="projects" aria-label="Projects">
+    <div class="projects-grid">
+
+      <article class="project" data-project="1" itemscope itemtype="https://schema.org/VisualArtwork">
+        <meta itemprop="name" content="Brand Identity — Nordica Coffee">
+        <meta itemprop="description" content="A warm, minimalist brand identity system for a specialty coffee roaster.">
+        <div class="project-image-area" role="button" tabindex="0">
+          <div class="project-slides">
+            <img src="projects/project1/1.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project1/2.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project1/3.avif" alt="" class="project-slide" width="1650" height="1275">
+          </div>
+          <div class="project-counter"><span>1</span> / 3</div>
+        </div>
+        <div class="project-info">
+          <p class="project-number">01</p>
+          <h3 class="project-title">Brand Identity — Nordica Coffee</h3>
+          <p class="project-desc">A warm, minimalist brand identity system for a specialty coffee roaster. Includes logo, packaging, stationery, and digital presence.</p>
+        </div>
+      </article>
+
+      <article class="project" data-project="2" itemscope itemtype="https://schema.org/VisualArtwork">
+        <meta itemprop="name" content="Editorial Design — Urban Perspectives">
+        <meta itemprop="description" content="An editorial design project exploring urban life through photography and typography.">
+        <div class="project-image-area" role="button" tabindex="0">
+          <div class="project-slides">
+            <img src="projects/project2/1.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project2/2.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project2/3.avif" alt="" class="project-slide" width="1650" height="1275">
+          </div>
+          <div class="project-counter"><span>1</span> / 3</div>
+        </div>
+        <div class="project-info">
+          <p class="project-number">02</p>
+          <h3 class="project-title">Editorial Design — Urban Perspectives</h3>
+          <p class="project-desc">An editorial design project exploring urban life through photography and typography. A magazine layout capturing the rhythm of the city.</p>
+        </div>
+      </article>
+
+      <article class="project" data-project="3" itemscope itemtype="https://schema.org/VisualArtwork">
+        <meta itemprop="name" content="Motion & Interaction Design">
+        <meta itemprop="description" content="A motion design exploration focusing on UI animation and micro-interactions.">
+        <div class="project-image-area" role="button" tabindex="0">
+          <div class="project-slides">
+            <img src="projects/project3/1.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project3/2.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project3/3.avif" alt="" class="project-slide" width="1650" height="1275">
+          </div>
+          <div class="project-counter"><span>1</span> / 3</div>
+        </div>
+        <div class="project-info">
+          <p class="project-number">03</p>
+          <h3 class="project-title">Motion &amp; Interaction Design</h3>
+          <p class="project-desc">A motion design exploration focusing on UI animation, micro-interactions, and brand storytelling through kinetic typography.</p>
+        </div>
+      </article>
+
+      <article class="project" data-project="4" itemscope itemtype="https://schema.org/VisualArtwork">
+        <meta itemprop="name" content="Packaging Design — Botanic">
+        <meta itemprop="description" content="A sustainable packaging design system for a botanical skincare range.">
+        <div class="project-image-area" role="button" tabindex="0">
+          <div class="project-slides">
+            <img src="projects/project4/1.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project4/2.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project4/3.avif" alt="" class="project-slide" width="1650" height="1275">
+          </div>
+          <div class="project-counter"><span>1</span> / 3</div>
+        </div>
+        <div class="project-info">
+          <p class="project-number">04</p>
+          <h3 class="project-title">Packaging Design — Botanic</h3>
+          <p class="project-desc">A sustainable packaging design system for a botanical skincare range. Natural textures, muted earth tones, and eco-conscious materials.</p>
+        </div>
+      </article>
+
+      <article class="project" data-project="5" itemscope itemtype="https://schema.org/VisualArtwork">
+        <meta itemprop="name" content="Digital Illustration — Dreamscapes">
+        <meta itemprop="description" content="A series of surreal digital illustrations blending photography and vector art.">
+        <div class="project-image-area" role="button" tabindex="0">
+          <div class="project-slides">
+            <img src="projects/project5/1.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project5/2.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project5/3.avif" alt="" class="project-slide" width="1650" height="1275">
+          </div>
+          <div class="project-counter"><span>1</span> / 3</div>
+        </div>
+        <div class="project-info">
+          <p class="project-number">05</p>
+          <h3 class="project-title">Digital Illustration — Dreamscapes</h3>
+          <p class="project-desc">A series of surreal digital illustrations blending photography and vector art. Explores dream-like landscapes and abstract compositions.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="about" class="about" aria-label="About">
+    <div class="about-content">
+      <p class="section-label">About</p>
+      <h2>Design with purpose</h2>
+      <p class="about-text">I'm a graphic design student with a passion for brand storytelling, editorial craft, and digital experimentation. I believe great design lives at the intersection of clarity and creativity — where every shape, colour, and typeface serves a purpose.</p>
+      <p class="about-text">This portfolio brings together five projects that represent the range of my work so far. I'm always looking for new challenges and opportunities to collaborate.</p>
+      <a href="HollyMatthewsPortfolio.pdf" class="btn-primary" download>Download portfolio <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" aria-label="Contact">
+    <div class="contact-content">
+      <p class="section-label">Contact</p>
+      <h2>Let's work together</h2>
+      <p class="contact-text">I'm currently looking for placement opportunities and freelance projects. If you'd like to discuss a project, commission work, or just say hello, drop me an email.</p>
+      <a href="mailto:info@hollymatthews.co.uk" class="btn-primary">info@hollymatthews.co.uk <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <p>&copy; 2026 Holly Matthews. All rights reserved. &mdash; <a href="mailto:info@hollymatthews.co.uk">info@hollymatthews.co.uk</a></p>
+</footer>
+
+<div class="lightbox" role="dialog" aria-label="Image lightbox" aria-hidden="true" data-state="closed">
+  <div class="lightbox-backdrop" aria-hidden="true"></div>
+  <div class="lightbox-inner">
+    <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Previous slide"><span aria-hidden="true">←</span></button>
+    <button class="lightbox-nav lightbox-next" aria-label="Next slide"><span aria-hidden="true">→</span></button>
+    <div class="lightbox-track" role="img" aria-label="Lightbox image display"></div>
+    <div class="lightbox-counter" aria-live="polite">1 / 3</div>
+  </div>
+</div>
+
+<script>
+(function(){'use strict';var lb=document.querySelector('.lightbox'),backdrop=lb.querySelector('.lightbox-backdrop'),closeBtn=lb.querySelector('.lightbox-close'),prevBtn=lb.querySelector('.lightbox-prev'),nextBtn=lb.querySelector('.lightbox-next'),track=lb.querySelector('.lightbox-track'),counter=lb.querySelector('.lightbox-counter'),projects=document.querySelectorAll('.project'),currentProject=0,currentSlide=0;projects.forEach(function(p,i){var area=p.querySelector('.project-image-area');if(area){area.addEventListener('click',function(){openLightbox(i,0)});area.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openLightbox(i,0)}})}});function openLightbox(p,s){currentProject=p;currentSlide=s;var slides=projects[p].querySelectorAll('.project-slide');updateLightbox(slides);lb.setAttribute('data-state','open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+function updateLightbox(slides){track.innerHTML='';var img=document.createElement('img');img.src=slides[currentSlide].src;img.alt=slides[currentSlide].alt||'Project image';img.loading='eager';track.appendChild(img);counter.textContent=(currentSlide+1)+' / '+slides.length}
+closeBtn.addEventListener('click',function(){lb.setAttribute('data-state','closed');lb.setAttribute('aria-hidden','true');document.body.style.overflow=''});
+backdrop.addEventListener('click',function(){lb.setAttribute('data-state','closed');lb.setAttribute('aria-hidden','true');document.body.style.overflow=''});
+prevBtn.addEventListener('click',function(){var slides=projects[currentProject].querySelectorAll('.project-slide');currentSlide=(currentSlide-1+slides.length)%slides.length;updateLightbox(slides)});
+nextBtn.addEventListener('click',function(){var slides=projects[currentProject].querySelectorAll('.project-slide');currentSlide=(currentSlide+1)%slides.length;updateLightbox(slides)});
+document.addEventListener('keydown',function(e){if(lb.getAttribute('data-state')!=='open')return;if(e.key==='Escape'){closeBtn.click()}
+if(e.key==='ArrowLeft'){prevBtn.click()}
+if(e.key==='ArrowRight'){nextBtn.click()}})})();
+</script>
+</body>
+</html>

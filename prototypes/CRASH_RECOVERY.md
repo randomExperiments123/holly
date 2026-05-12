@@ -28,7 +28,7 @@ prototypes/XXX/
 
 Quick check:
 ```bash
-for i in $(seq -w 1 50); do
+for i in $(seq -w 1 100); do
   d=$(printf "%03d" $i)
   echo -n "$d: "
   [ -f "prototypes/$d/index.html" ] && echo -n "✓" || echo -n "✗"
@@ -44,7 +44,7 @@ Look at `Memory.md` → "Next prototype to create" field.
 ## 4. Creating a New Prototype
 ```bash
 # Copy assets
-NUM="051"  # or next number
+NUM=$(cat prototypes/Memory.md | grep "Next Prototype to Create" | awk '{print $NF}')
 mkdir -p "prototypes/$NUM/projects"
 for p in 1 2 3 4 5; do
   cp -r "projects/project$p" "prototypes/$NUM/projects/"
@@ -58,7 +58,8 @@ cp CNAME HollyMatthewsPortfolio.pdf "prototypes/$NUM/"
 ```
 
 ## 5. Directory Naming Convention
-**ALWAYS use 3-digit format**: `001`, `002`, ... `050`.
+**ALWAYS use 3-digit format**: `001`, `002`, ... `050`, `051`, ... `100`.
+**Never use 2-digit** (`51`) or unpadded (`1`) numbering.
 
 Never use 2-digit (`01`, `02`) or no-padding (`1`, `2`).
 

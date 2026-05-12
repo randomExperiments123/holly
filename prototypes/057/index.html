@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holly Matthews — Holographic Portfolio</title>
+<meta name="description" content="Holographic iridescent portfolio of Holly Matthews, graphic design student. Brand identity, editorial design, motion graphics, packaging, and digital illustration.">
+<meta property="og:title" content="Holly Matthews — Holographic Portfolio">
+<meta property="og:description" content="Prismatic holographic portfolio of Holly Matthews. Brand identity, editorial design, motion graphics, packaging, and digital illustration.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hollymatthews.co.uk">
+<link rel="canonical" href="https://hollymatthews.co.uk">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ff00ff'>HM</text></svg>">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@keyframes iridescent{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(200%)}}
+@keyframes prism{0%{opacity:.3}50%{opacity:.7}100%{opacity:.3}}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Space Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;color:#e0e0f0;background:#0a0a0f;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-image:radial-gradient(ellipse at 20% 50%,rgba(255,0,255,.03) 0%,transparent 50%),radial-gradient(ellipse at 80% 50%,rgba(0,255,255,.03) 0%,transparent 50%)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.skip-link{position:absolute;top:-100%;left:0;z-index:200;padding:14px 28px;background:linear-gradient(90deg,#ff00ff,#00ffff,#ffff00,#00ff00);color:#000;font-size:14px;font-weight:700;font-family:'Space Grotesk',sans-serif;transition:top .3s}
+.skip-link:focus{top:0}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:56px;background:rgba(10,10,15,.8);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,0,255,.15)}
+.nav::after{content:'';position:absolute;bottom:-1px;left:0;width:100%;height:2px;background:linear-gradient(90deg,#ff00ff,#00ffff,#ffff00,#00ff00,#ff00ff);background-size:200% auto;animation:iridescent 4s linear infinite}
+.nav-logo{font-family:'Orbitron',sans-serif;font-size:16px;font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase;background:linear-gradient(90deg,#ff00ff,#00ffff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:24px}
+.nav-link{font-size:12px;font-weight:500;color:rgba(255,255,255,.5);transition:all .3s;letter-spacing:1px;text-transform:uppercase}
+.nav-link:hover{color:#fff;text-shadow:0 0 20px rgba(255,0,255,.5)}
+.hero{position:relative;padding:160px 24px 100px;text-align:center;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,0,255,.08),rgba(0,255,255,.08),rgba(255,255,0,.08),rgba(0,255,0,.08));background-size:400% 400%;animation:iridescent 8s ease infinite;pointer-events:none}
+.hero::after{content:'';position:absolute;top:-200px;left:-200px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(255,0,255,.1) 0%,transparent 70%);pointer-events:none;animation:prism 4s ease-in-out infinite}
+.hero-content{position:relative;z-index:1;max-width:800px;margin:0 auto}
+.hero-eyebrow{font-size:11px;color:rgba(255,255,255,.3);margin-bottom:16px;font-weight:500;letter-spacing:4px;text-transform:uppercase}
+.hero-title{font-family:'Orbitron',sans-serif;font-size:clamp(32px,7vw,64px);font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#ff00ff,#00ffff,#ffff00,#00ff00,#ff00ff);background-size:300% 300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:iridescent 5s ease infinite;text-transform:uppercase}
+.hero-sub{font-size:clamp(15px,2.5vw,19px);color:rgba(255,255,255,.4);line-height:1.6;font-weight:300;margin-bottom:36px;max-width:550px;margin-left:auto;margin-right:auto}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:linear-gradient(135deg,#ff00ff,#00ffff);color:#000;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;cursor:pointer;border:none;border-radius:4px;transition:all .3s;text-transform:uppercase;letter-spacing:1px;position:relative;overflow:hidden}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(255,0,255,.3)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:transparent;color:rgba(255,255,255,.5);font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,0,255,.3);cursor:pointer;transition:all .3s;border-radius:4px;text-transform:uppercase;letter-spacing:1px}
+.btn-ghost:hover{border-color:#ff00ff;color:#fff;box-shadow:0 0 30px rgba(255,0,255,.15)}
+.intro{padding:80px 24px 60px;text-align:center;position:relative}
+.intro::before{content:'';position:absolute;top:0;left:10%;width:80%;height:1px;background:linear-gradient(90deg,transparent,#ff00ff,transparent)}
+.intro-content{max-width:680px;margin:0 auto}
+.section-label{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:4px;text-transform:uppercase;margin-bottom:12px;font-weight:600}
+.intro h2{font-size:clamp(22px,3.5vw,34px);font-weight:300;letter-spacing:-.01em;line-height:1.3;margin-bottom:20px;color:#e0e0f0}
+.intro p{font-size:15px;color:rgba(255,255,255,.4);line-height:1.7;font-weight:300}
+.projects{padding:40px 24px 100px}
+.projects-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+@media(max-width:768px){.projects-grid{grid-template-columns:1fr;gap:24px}}
+.project{position:relative;cursor:pointer;background:rgba(20,20,32,.8);border:1px solid rgba(255,0,255,.12);border-radius:4px;overflow:hidden;transition:all .4s}
+.project:hover{transform:translateY(-4px);border-color:rgba(255,0,255,.3);box-shadow:0 0 40px rgba(255,0,255,.08),0 0 80px rgba(0,255,255,.04)}
+.project-image-area{position:relative;overflow:hidden;aspect-ratio:4/3}
+.project-image-area::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,0,255,.05),rgba(0,255,255,.05));pointer-events:none}
+.project-slides{display:flex;transition:transform .5s cubic-bezier(.25,.46,.45,.94);height:100%}
+.project-slide{flex:0 0 100%;width:100%;height:100%;object-fit:cover}
+.project-counter{position:absolute;bottom:12px;right:12px;background:rgba(10,10,15,.7);border:1px solid rgba(255,0,255,.2);color:rgba(255,255,255,.6);font-size:11px;padding:4px 12px;font-weight:500;letter-spacing:.05em;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.project-holo{position:absolute;inset:0;background:linear-gradient(135deg,transparent 30%,rgba(255,0,255,.06) 50%,rgba(0,255,255,.06) 60%,transparent 80%);transform:translateX(-100%);transition:transform .6s;pointer-events:none}
+.project:hover .project-holo{transform:translateX(100%)}
+.project-info{padding:24px 28px 28px}
+.project-number{font-size:11px;color:rgba(255,0,255,.5);font-weight:600;letter-spacing:2px;margin-bottom:4px;text-transform:uppercase}
+.project-title{font-family:'Orbitron',sans-serif;font-size:16px;font-weight:600;letter-spacing:-.01em;margin-bottom:8px;color:#e0e0f0;text-transform:uppercase}
+.project-title::after{content:'';display:block;width:30px;height:1px;margin-top:10px;background:linear-gradient(90deg,#ff00ff,transparent)}
+.project-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.6;font-weight:300}
+.about{background:rgba(20,20,32,.5);padding:100px 24px;text-align:center;position:relative;border-top:1px solid rgba(255,0,255,.08);border-bottom:1px solid rgba(255,0,255,.08)}
+.about::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,#00ffff,transparent)}
+.about-content{max-width:620px;margin:0 auto}
+.about h2{font-family:'Orbitron',sans-serif;font-size:clamp(24px,3.5vw,36px);font-weight:700;letter-spacing:-.02em;margin-bottom:24px;color:#e0e0f0;text-transform:uppercase}
+.about-text{font-size:15px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:16px;font-weight:300}
+.contact{background:#0a0a0f;padding:100px 24px 80px;text-align:center;position:relative}
+.contact::before{content:'';position:absolute;top:0;left:10%;width:80%;height:1px;background:linear-gradient(90deg,transparent,#00ffff,transparent)}
+.contact-content{max-width:620px;margin:0 auto}
+.contact .section-label{color:rgba(255,255,255,.3)}
+.contact h2{font-family:'Orbitron',sans-serif;font-size:clamp(24px,3.5vw,40px);font-weight:700;letter-spacing:-.02em;margin-bottom:20px;background:linear-gradient(135deg,#ff00ff,#00ffff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-transform:uppercase}
+.contact-text{font-size:15px;color:rgba(255,255,255,.4);line-height:1.6;margin-bottom:32px}
+.contact .btn-primary{background:linear-gradient(135deg,#00ffff,#ff00ff)}
+.footer{background:#141420;color:rgba(255,255,255,.3);padding:28px 24px;text-align:center;font-size:12px;border-top:1px solid rgba(255,0,255,.08)}
+.footer a{color:#ff00ff}
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+.lightbox[data-state=open]{opacity:1;pointer-events:auto}
+.lightbox-backdrop{position:absolute;inset:0;background:rgba(10,10,15,.95);-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px)}
+.lightbox-inner{position:relative;max-width:90vw;max-height:90vh;display:flex;flex-direction:column;align-items:center;z-index:1}
+.lightbox-close{position:fixed;top:20px;right:20px;width:44px;height:44px;border:1px solid rgba(255,0,255,.2);background:rgba(20,20,32,.8);color:#fff;font-size:22px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:all .3s;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.lightbox-close:hover{background:rgba(255,0,255,.15);border-color:#ff00ff}
+.lightbox-nav{position:fixed;top:50%;transform:translateY(-50%);width:44px;height:44px;border:1px solid rgba(255,0,255,.2);background:rgba(20,20,32,.8);color:#fff;font-size:18px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:all .3s;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.lightbox-prev{left:20px}.lightbox-next{right:20px}
+.lightbox-nav:hover{background:rgba(255,0,255,.15);border-color:#ff00ff}
+.lightbox-track{max-width:100%;max-height:80vh;overflow:hidden;border:1px solid rgba(255,0,255,.15)}
+.lightbox-track img{max-width:100%;max-height:80vh;object-fit:contain}
+.lightbox-counter{color:rgba(255,255,255,.4);font-size:12px;margin-top:14px;letter-spacing:.1em;font-weight:300}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="nav" role="banner">
+  <a href="#" class="nav-logo" aria-label="Holly Matthews home">Holly Matthews</a>
+  <div class="nav-links">
+    <a href="#work" class="nav-link">Work</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#contact" class="nav-link">Contact</a>
+    <a href="HollyMatthewsPortfolio.pdf" class="nav-link" download>Portfolio PDF</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Portfolio 2026</p>
+      <h1 class="hero-title">Holly Matthews</h1>
+      <p class="hero-sub">Graphic Design Student — brand identity, editorial, motion, packaging &amp; illustration</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn-primary">View the work</a>
+        <a href="HollyMatthewsPortfolio.pdf" class="btn-ghost" download>Download portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="intro-content">
+      <p class="section-label">Introduction</p>
+      <h2>A curated collection of projects exploring brand identity, editorial design, motion graphics, packaging, and digital illustration.</h2>
+      <p>Each project represents a different discipline within graphic design, showcasing a range of techniques, concepts, and creative processes developed during my studies.</p>
+    </div>
+  </section>
+
+  <section id="work" class="projects" aria-label="Projects">
+    <div class="projects-grid">
+
+      <article class="project" data-project="1" itemscope itemtype="https://schema.org/VisualArtwork">
+        <meta itemprop="name" content="Brand Identity — Nordica Coffee">
+        <meta itemprop="description" content="A warm, minimalist brand identity system for a specialty coffee roaster.">
+        <div class="project-image-area" role="button" tabindex="0">
+          <div class="project-slides">
+            <img src="projects/project1/1.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project1/2.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project1/3.avif" alt="" class="project-slide" width="1650" height="1275">
+          </div>
+          <div class="project-counter"><span>1</span> / 3</div>
+          <div class="project-holo"></div>
+        </div>
+        <div class="project-info">
+          <p class="project-number">01</p>
+          <h3 class="project-title">Brand Identity — Nordica Coffee</h3>
+          <p class="project-desc">A warm, minimalist brand identity system for a specialty coffee roaster. Includes logo, packaging, stationery, and digital presence.</p>
+        </div>
+      </article>
+
+      <article class="project" data-project="2" itemscope itemtype="https://schema.org/VisualArtwork">
+        <meta itemprop="name" content="Editorial Design — Urban Perspectives">
+        <meta itemprop="description" content="An editorial design project exploring urban life through photography and typography.">
+        <div class="project-image-area" role="button" tabindex="0">
+          <div class="project-slides">
+            <img src="projects/project2/1.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project2/2.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project2/3.avif" alt="" class="project-slide" width="1650" height="1275">
+          </div>
+          <div class="project-counter"><span>1</span> / 3</div>
+          <div class="project-holo"></div>
+        </div>
+        <div class="project-info">
+          <p class="project-number">02</p>
+          <h3 class="project-title">Editorial Design — Urban Perspectives</h3>
+          <p class="project-desc">An editorial design project exploring urban life through photography and typography. A magazine layout capturing the rhythm of the city.</p>
+        </div>
+      </article>
+
+      <article class="project" data-project="3" itemscope itemtype="https://schema.org/VisualArtwork">
+        <meta itemprop="name" content="Motion & Interaction Design">
+        <meta itemprop="description" content="A motion design exploration focusing on UI animation and micro-interactions.">
+        <div class="project-image-area" role="button" tabindex="0">
+          <div class="project-slides">
+            <img src="projects/project3/1.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project3/2.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project3/3.avif" alt="" class="project-slide" width="1650" height="1275">
+          </div>
+          <div class="project-counter"><span>1</span> / 3</div>
+          <div class="project-holo"></div>
+        </div>
+        <div class="project-info">
+          <p class="project-number">03</p>
+          <h3 class="project-title">Motion &amp; Interaction Design</h3>
+          <p class="project-desc">A motion design exploration focusing on UI animation, micro-interactions, and brand storytelling through kinetic typography.</p>
+        </div>
+      </article>
+
+      <article class="project" data-project="4" itemscope itemtype="https://schema.org/VisualArtwork">
+        <meta itemprop="name" content="Packaging Design — Botanic">
+        <meta itemprop="description" content="A sustainable packaging design system for a botanical skincare range.">
+        <div class="project-image-area" role="button" tabindex="0">
+          <div class="project-slides">
+            <img src="projects/project4/1.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project4/2.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project4/3.avif" alt="" class="project-slide" width="1650" height="1275">
+          </div>
+          <div class="project-counter"><span>1</span> / 3</div>
+          <div class="project-holo"></div>
+        </div>
+        <div class="project-info">
+          <p class="project-number">04</p>
+          <h3 class="project-title">Packaging Design — Botanic</h3>
+          <p class="project-desc">A sustainable packaging design system for a botanical skincare range. Natural textures, muted earth tones, and eco-conscious materials.</p>
+        </div>
+      </article>
+
+      <article class="project" data-project="5" itemscope itemtype="https://schema.org/VisualArtwork">
+        <meta itemprop="name" content="Digital Illustration — Dreamscapes">
+        <meta itemprop="description" content="A series of surreal digital illustrations blending photography and vector art.">
+        <div class="project-image-area" role="button" tabindex="0">
+          <div class="project-slides">
+            <img src="projects/project5/1.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project5/2.avif" alt="" class="project-slide" width="1650" height="1275">
+            <img src="projects/project5/3.avif" alt="" class="project-slide" width="1650" height="1275">
+          </div>
+          <div class="project-counter"><span>1</span> / 3</div>
+          <div class="project-holo"></div>
+        </div>
+        <div class="project-info">
+          <p class="project-number">05</p>
+          <h3 class="project-title">Digital Illustration — Dreamscapes</h3>
+          <p class="project-desc">A series of surreal digital illustrations blending photography and vector art. Explores dream-like landscapes and abstract compositions.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="about" class="about" aria-label="About">
+    <div class="about-content">
+      <p class="section-label">About</p>
+      <h2>Design with purpose</h2>
+      <p class="about-text">I'm a graphic design student with a passion for brand storytelling, editorial craft, and digital experimentation. I believe great design lives at the intersection of clarity and creativity — where every shape, colour, and typeface serves a purpose.</p>
+      <p class="about-text">This portfolio brings together five projects that represent the range of my work so far. I'm always looking for new challenges and opportunities to collaborate.</p>
+      <a href="HollyMatthewsPortfolio.pdf" class="btn-primary" download>Download portfolio <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" aria-label="Contact">
+    <div class="contact-content">
+      <p class="section-label">Contact</p>
+      <h2>Let's work together</h2>
+      <p class="contact-text">I'm currently looking for placement opportunities and freelance projects. If you'd like to discuss a project, commission work, or just say hello, drop me an email.</p>
+      <a href="mailto:info@hollymatthews.co.uk" class="btn-primary">info@hollymatthews.co.uk <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <p>&copy; 2026 Holly Matthews. All rights reserved. &mdash; <a href="mailto:info@hollymatthews.co.uk">info@hollymatthews.co.uk</a></p>
+</footer>
+
+<div class="lightbox" role="dialog" aria-label="Image lightbox" aria-hidden="true" data-state="closed">
+  <div class="lightbox-backdrop" aria-hidden="true"></div>
+  <div class="lightbox-inner">
+    <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Previous slide"><span aria-hidden="true">←</span></button>
+    <button class="lightbox-nav lightbox-next" aria-label="Next slide"><span aria-hidden="true">→</span></button>
+    <div class="lightbox-track" role="img" aria-label="Lightbox image display"></div>
+    <div class="lightbox-counter" aria-live="polite">1 / 3</div>
+  </div>
+</div>
+
+<script>
+(function(){'use strict';var lb=document.querySelector('.lightbox'),backdrop=lb.querySelector('.lightbox-backdrop'),closeBtn=lb.querySelector('.lightbox-close'),prevBtn=lb.querySelector('.lightbox-prev'),nextBtn=lb.querySelector('.lightbox-next'),track=lb.querySelector('.lightbox-track'),counter=lb.querySelector('.lightbox-counter'),projects=document.querySelectorAll('.project'),currentProject=0,currentSlide=0;projects.forEach(function(p,i){var area=p.querySelector('.project-image-area');if(area){area.addEventListener('click',function(){openLightbox(i,0)});area.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openLightbox(i,0)}})}});function openLightbox(p,s){currentProject=p;currentSlide=s;var slides=projects[p].querySelectorAll('.project-slide');updateLightbox(slides);lb.setAttribute('data-state','open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+function updateLightbox(slides){track.innerHTML='';var img=document.createElement('img');img.src=slides[currentSlide].src;img.alt=slides[currentSlide].alt||'Project image';img.loading='eager';track.appendChild(img);counter.textContent=(currentSlide+1)+' / '+slides.length}
+closeBtn.addEventListener('click',function(){lb.setAttribute('data-state','closed');lb.setAttribute('aria-hidden','true');document.body.style.overflow=''});
+backdrop.addEventListener('click',function(){lb.setAttribute('data-state','closed');lb.setAttribute('aria-hidden','true');document.body.style.overflow=''});
+prevBtn.addEventListener('click',function(){var slides=projects[currentProject].querySelectorAll('.project-slide');currentSlide=(currentSlide-1+slides.length)%slides.length;updateLightbox(slides)});
+nextBtn.addEventListener('click',function(){var slides=projects[currentProject].querySelectorAll('.project-slide');currentSlide=(currentSlide+1)%slides.length;updateLightbox(slides)});
+document.addEventListener('keydown',function(e){if(lb.getAttribute('data-state')!=='open')return;if(e.key==='Escape'){closeBtn.click()}
+if(e.key==='ArrowLeft'){prevBtn.click()}
+if(e.key==='ArrowRight'){nextBtn.click()}})})();
+</script>
+</body>
+</html>

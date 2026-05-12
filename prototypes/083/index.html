@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holly Matthews — Split Complementary</title>
+<meta name="description" content="Holly Matthews — graphic design portfolio driven by split-complementary color theory. Brand identity, editorial, motion, packaging, illustration.">
+<meta property="og:title" content="Holly Matthews — Split Complementary">
+<meta property="og:description" content="Holly Matthews — graphic design portfolio driven by split-complementary color theory.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hollymatthews.co.uk">
+<link rel="canonical" href="https://hollymatthews.co.uk">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>HM</text></svg>">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;color:#fff;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.skip-link{position:absolute;top:-100%;left:0;z-index:100;padding:12px 24px;background:#e9c46a;color:#1a1a1a;font-size:14px;font-weight:700}
+.skip-link:focus{top:0}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 22px;height:48px;background:rgba(38,70,83,.95);color:#fff;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.2em}
+.nav-logo{font-size:14px;color:#e9c46a;letter-spacing:.1em}
+.nav-links{display:flex;gap:24px}
+.nav-link{color:rgba(255,255,255,.7);transition:color .2s}
+.nav-link:hover{color:#fff}
+.block{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:80px 22px;position:relative}
+.block-teal{background:#264653}.block-orange{background:#e76f51}.block-gold{background:#e9c46a;color:#1a1a1a}
+.block-content{max-width:800px;width:100%;text-align:center}
+.block-eyebrow{font-size:12px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;margin-bottom:12px;opacity:.8}
+.block-title{font-size:clamp(32px,6vw,64px);font-weight:700;text-transform:uppercase;letter-spacing:.05em;line-height:1.1;margin-bottom:16px}
+.block-sub{font-size:clamp(15px,1.8vw,19px);max-width:560px;margin:0 auto;line-height:1.6;opacity:.85}
+.block-gold .block-title,.block-gold .block-sub{color:#1a1a1a}
+.block-gold .block-eyebrow{color:#264653}
+.split-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:40px;width:100%}
+@media(min-width:768px){.split-grid{grid-template-columns:repeat(2,1fr);gap:24px}}
+.split-card{position:relative;cursor:pointer;padding:0;transition:all .3s;border:2px solid rgba(255,255,255,.25);overflow:hidden}
+.split-card:hover{border-color:rgba(255,255,255,.7);filter:brightness(1.1)}
+.block-orange .split-card,.block-gold .split-card{border-color:rgba(0,0,0,.15)}
+.block-orange .split-card:hover,.block-gold .split-card:hover{border-color:rgba(0,0,0,.4)}
+.split-card-img{position:relative;overflow:hidden;aspect-ratio:4/3;background:rgba(0,0,0,.15)}
+.split-card-slides{display:flex;transition:transform .5s cubic-bezier(.25,.46,.45,.94);height:100%}
+.split-card-slide{flex:0 0 100%;width:100%;height:100%;object-fit:cover}
+.split-card-counter{position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,.5);color:#fff;font-size:11px;padding:3px 8px;font-weight:600;letter-spacing:.05em}
+.split-card-info{padding:16px 16px 20px}
+.block-orange .split-card-info,.block-gold .split-card-info{color:#1a1a1a}
+.block-teal .split-card-info{color:#fff}
+.split-card-number{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;opacity:.6;margin-bottom:4px}
+.split-card-title{font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.split-card-desc{font-size:13px;opacity:.75;line-height:1.4}
+.about-grid{display:grid;grid-template-columns:1fr;gap:32px;margin-top:32px;text-align:left}
+@media(min-width:768px){.about-grid{grid-template-columns:1fr 1fr}}
+.about-grid p{font-size:16px;line-height:1.7;opacity:.9}
+.contact-email{display:inline-block;margin-top:20px;padding:16px 40px;border:2px solid #fff;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;transition:all .3s}
+.contact-email:hover{background:#fff;color:#264653}
+.block-gold .contact-email{border-color:#1a1a1a;color:#1a1a1a}
+.block-gold .contact-email:hover{background:#264653;border-color:#264653;color:#fff}
+.footer{background:#264653;color:rgba(255,255,255,.5);padding:24px 22px;text-align:center;font-size:12px;letter-spacing:.1em}
+.footer a{color:#e9c46a}
+.lightbox{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+.lightbox[data-state=open]{opacity:1;pointer-events:auto}
+.lightbox-backdrop{position:absolute;inset:0;background:rgba(38,70,83,.97)}
+.lightbox-inner{position:relative;max-width:90vw;max-height:90vh;display:flex;flex-direction:column;align-items:center;z-index:1}
+.lightbox-close{position:fixed;top:20px;right:20px;width:44px;height:44px;border:2px solid #e76f51;background:transparent;color:#e76f51;font-size:20px;font-weight:700;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.lightbox-close:hover{background:#e76f51;color:#fff}
+.lightbox-nav{position:fixed;top:50%;transform:translateY(-50%);width:44px;height:44px;border:2px solid rgba(255,255,255,.2);background:transparent;color:#fff;font-size:18px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.lightbox-prev{left:20px}.lightbox-next{right:20px}
+.lightbox-nav:hover{border-color:#e9c46a;color:#e9c46a}
+.lightbox-track{max-width:100%;max-height:80vh}
+.lightbox-track img{max-width:100%;max-height:80vh;object-fit:contain}
+.lightbox-counter{color:rgba(255,255,255,.5);font-size:12px;margin-top:12px;letter-spacing:.1em;font-weight:600}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="nav" role="banner">
+  <a href="#" class="nav-logo">SPLIT</a>
+  <div class="nav-links">
+    <a href="#work" class="nav-link">Work</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="block block-teal" aria-label="Introduction">
+    <div class="block-content">
+      <p class="block-eyebrow">Split Complementary</p>
+      <h1 class="block-title">Holly Matthews</h1>
+      <p class="block-sub">Three colours. Five projects. One portfolio driven by split-complementary color theory — where harmony meets tension.</p>
+    </div>
+  </section>
+
+  <section id="work" class="block block-orange" aria-label="Projects">
+    <div class="block-content">
+      <p class="block-eyebrow">The work</p>
+      <h2 class="block-title">Projects</h2>
+      <div class="split-grid">
+        <article class="split-card" data-project="0" itemscope itemtype="https://schema.org/VisualArtwork">
+          <meta itemprop="name" content="Brand Identity — Nordica Coffee">
+          <meta itemprop="description" content="A warm, minimalist brand identity system for a specialty coffee roaster.">
+          <div class="split-card-img" role="button" tabindex="0">
+            <div class="split-card-slides">
+              <img src="projects/project1/1.avif" alt="" class="split-card-slide" width="1650" height="1275">
+              <img src="projects/project1/2.avif" alt="" class="split-card-slide" width="1650" height="1275">
+              <img src="projects/project1/3.avif" alt="" class="split-card-slide" width="1650" height="1275">
+            </div>
+            <div class="split-card-counter"><span>1</span> / 3</div>
+          </div>
+          <div class="split-card-info">
+            <p class="split-card-number">01</p>
+            <h3 class="split-card-title">Nordica Coffee</h3>
+            <p class="split-card-desc">Brand identity for a specialty coffee roaster</p>
+          </div>
+        </article>
+        <article class="split-card" data-project="1" itemscope itemtype="https://schema.org/VisualArtwork">
+          <meta itemprop="name" content="Editorial Design — Urban Perspectives">
+          <meta itemprop="description" content="An editorial design project exploring urban life through photography and typography.">
+          <div class="split-card-img" role="button" tabindex="0">
+            <div class="split-card-slides">
+              <img src="projects/project2/1.avif" alt="" class="split-card-slide" width="1650" height="1275">
+              <img src="projects/project2/2.avif" alt="" class="split-card-slide" width="1650" height="1275">
+              <img src="projects/project2/3.avif" alt="" class="split-card-slide" width="1650" height="1275">
+            </div>
+            <div class="split-card-counter"><span>1</span> / 3</div>
+          </div>
+          <div class="split-card-info">
+            <p class="split-card-number">02</p>
+            <h3 class="split-card-title">Urban Perspectives</h3>
+            <p class="split-card-desc">Editorial design exploring city life</p>
+          </div>
+        </article>
+        <article class="split-card" data-project="2" itemscope itemtype="https://schema.org/VisualArtwork">
+          <meta itemprop="name" content="Motion & Interaction Design">
+          <meta itemprop="description" content="A motion design exploration focusing on UI animation and micro-interactions.">
+          <div class="split-card-img" role="button" tabindex="0">
+            <div class="split-card-slides">
+              <img src="projects/project3/1.avif" alt="" class="split-card-slide" width="1650" height="1275">
+              <img src="projects/project3/2.avif" alt="" class="split-card-slide" width="1650" height="1275">
+              <img src="projects/project3/3.avif" alt="" class="split-card-slide" width="1650" height="1275">
+            </div>
+            <div class="split-card-counter"><span>1</span> / 3</div>
+          </div>
+          <div class="split-card-info">
+            <p class="split-card-number">03</p>
+            <h3 class="split-card-title">Motion &amp; Interaction</h3>
+            <p class="split-card-desc">UI animation and kinetic type</p>
+          </div>
+        </article>
+        <article class="split-card" data-project="3" itemscope itemtype="https://schema.org/VisualArtwork">
+          <meta itemprop="name" content="Packaging Design — Botanic">
+          <meta itemprop="description" content="A sustainable packaging design system for a botanical skincare range.">
+          <div class="split-card-img" role="button" tabindex="0">
+            <div class="split-card-slides">
+              <img src="projects/project4/1.avif" alt="" class="split-card-slide" width="1650" height="1275">
+              <img src="projects/project4/2.avif" alt="" class="split-card-slide" width="1650" height="1275">
+              <img src="projects/project4/3.avif" alt="" class="split-card-slide" width="1650" height="1275">
+            </div>
+            <div class="split-card-counter"><span>1</span> / 3</div>
+          </div>
+          <div class="split-card-info">
+            <p class="split-card-number">04</p>
+            <h3 class="split-card-title">Botanic</h3>
+            <p class="split-card-desc">Sustainable packaging for skincare</p>
+          </div>
+        </article>
+        <article class="split-card" data-project="4" itemscope itemtype="https://schema.org/VisualArtwork">
+          <meta itemprop="name" content="Digital Illustration — Dreamscapes">
+          <meta itemprop="description" content="A series of surreal digital illustrations blending photography and vector art.">
+          <div class="split-card-img" role="button" tabindex="0">
+            <div class="split-card-slides">
+              <img src="projects/project5/1.avif" alt="" class="split-card-slide" width="1650" height="1275">
+              <img src="projects/project5/2.avif" alt="" class="split-card-slide" width="1650" height="1275">
+              <img src="projects/project5/3.avif" alt="" class="split-card-slide" width="1650" height="1275">
+            </div>
+            <div class="split-card-counter"><span>1</span> / 3</div>
+          </div>
+          <div class="split-card-info">
+            <p class="split-card-number">05</p>
+            <h3 class="split-card-title">Dreamscapes</h3>
+            <p class="split-card-desc">Surreal digital illustrations</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="block block-gold" aria-label="About">
+    <div class="block-content">
+      <p class="block-eyebrow">About</p>
+      <h2 class="block-title">Design in colour</h2>
+      <div class="about-grid">
+        <p>I'm Holly Matthews, a graphic design student who believes colour is a language. Every hue, every tone, every contrast tells part of the story. This portfolio is built on a split-complementary palette — three colours that clash and harmonise in equal measure.</p>
+        <p>Brand identity, editorial design, motion graphics, packaging, digital illustration — five disciplines, one approach: intentional, considered, colourful.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="block block-teal" aria-label="Contact">
+    <div class="block-content">
+      <p class="block-eyebrow">Contact</p>
+      <h2 class="block-title">Work with me</h2>
+      <p class="block-sub">Looking for a designer who thinks in colour? Let's talk.</p>
+      <a href="mailto:info@hollymatthews.co.uk" class="contact-email">Email me</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <p>&copy; 2026 Holly Matthews. &mdash; <a href="mailto:info@hollymatthews.co.uk">info@hollymatthews.co.uk</a></p>
+</footer>
+
+<div class="lightbox" role="dialog" aria-label="Image lightbox" aria-hidden="true" data-state="closed">
+  <div class="lightbox-backdrop" aria-hidden="true"></div>
+  <div class="lightbox-inner">
+    <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Previous slide"><span aria-hidden="true">←</span></button>
+    <button class="lightbox-nav lightbox-next" aria-label="Next slide"><span aria-hidden="true">→</span></button>
+    <div class="lightbox-track" role="img" aria-label="Lightbox image display"></div>
+    <div class="lightbox-counter" aria-live="polite">1 / 3</div>
+  </div>
+</div>
+
+<script>
+(function(){'use strict';var lb=document.querySelector('.lightbox'),backdrop=lb.querySelector('.lightbox-backdrop'),closeBtn=lb.querySelector('.lightbox-close'),prevBtn=lb.querySelector('.lightbox-prev'),nextBtn=lb.querySelector('.lightbox-next'),track=lb.querySelector('.lightbox-track'),counter=lb.querySelector('.lightbox-counter'),projects=document.querySelectorAll('.split-card'),currentProject=0,currentSlide=0;projects.forEach(function(p,i){var area=p.querySelector('.split-card-img');if(area){area.addEventListener('click',function(){openLightbox(i,0)});area.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openLightbox(i,0)}})}});function openLightbox(p,s){currentProject=p;currentSlide=s;var slides=projects[p].querySelectorAll('.split-card-slide');updateLightbox(slides);lb.setAttribute('data-state','open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+function updateLightbox(slides){track.innerHTML='';var img=document.createElement('img');img.src=slides[currentSlide].src;img.alt=slides[currentSlide].alt||'Project image';img.loading='eager';track.appendChild(img);counter.textContent=(currentSlide+1)+' / '+slides.length}
+closeBtn.addEventListener('click',function(){lb.setAttribute('data-state','closed');lb.setAttribute('aria-hidden','true');document.body.style.overflow=''});
+backdrop.addEventListener('click',function(){lb.setAttribute('data-state','closed');lb.setAttribute('aria-hidden','true');document.body.style.overflow=''});
+prevBtn.addEventListener('click',function(){var slides=projects[currentProject].querySelectorAll('.split-card-slide');currentSlide=(currentSlide-1+slides.length)%slides.length;updateLightbox(slides)});
+nextBtn.addEventListener('click',function(){var slides=projects[currentProject].querySelectorAll('.split-card-slide');currentSlide=(currentSlide+1)%slides.length;updateLightbox(slides)});
+document.addEventListener('keydown',function(e){if(lb.getAttribute('data-state')!=='open')return;if(e.key==='Escape'){closeBtn.click()}
+if(e.key==='ArrowLeft'){prevBtn.click()}
+if(e.key==='ArrowRight'){nextBtn.click()}})})();
+</script>
+</body>
+</html>
