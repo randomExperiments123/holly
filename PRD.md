@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 design projects with image galleries and a lightbox viewer. Dark-themed, minimal, typography-driven.
+Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 design projects with image galleries and a lightbox viewer. See [design.md](design.md) for the visual design system.
 
 **URL:** hollymatthews.co.uk  
 **Stack:** Vanilla HTML / CSS / JS — zero dependencies or build tools  
@@ -28,61 +28,32 @@ Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 
 
 ## 3. Design System
 
-### Colors
-| Token | Value |
-|---|---|
-| `--bg` | `#0a0a0a` |
-| `--bg-soft` | `#111113` |
-| `--surface` | `#161618` |
-| `--border` | `#2a2a2e` |
-| `--text` | `#ececec` |
-| `--text-muted` | `#8a8a8f` |
-| `--accent` | `#e8a838` (gold) |
-
-### Typography
-| Role | Font | Weights |
-|---|---|---|
-| Display/headings | Playfair Display | 400, 700, 900 |
-| Body | Inter | 300, 400, 500, 600 |
-
-### Spacing
-- Border radius: 16px (cards), 10px (small), 50px (buttons)
-- Max content width: 1280px (projects), 720px (hero/intro), 680px (about)
-- Site padding: 1.25rem sides on mobile, 2.5rem on wider viewports
-
-### Cursor
-- Custom gold (`#e8a838`) SVG arrow cursor on all elements
-- Interactive elements (buttons, links, cards) use `cursor: pointer` fallback
-- Hotspot at arrow tip (`1 1`)
+Refer to [design.md](design.md) §1 for colors, typography, spacing, and cursor specs.
 
 ---
 
 ## 4. Components
 
+Visual specs: see [design.md](design.md) §2.
+
 ### Navigation
 - Sticky, compact padding on mobile, larger padding on desktop
-- 40% opaque bg + backdrop-blur initially
-- `.scrolled` class at scroll >80px: 85% opaque bg + border-bottom
-- Logo: Playfair Display
-- Links: uppercase, tap target minimum 44×44px on mobile, underline animation via `::after` on hover
+- Links: uppercase, tap target minimum 44×44px on mobile
 
 ### Project Card
 - Tap/click anywhere → opens lightbox
 - Single column full-width on mobile; grid layout on wider screens
 - 3 slides per project (AVIF, 1650×1275)
-- Slide counter badge (top-right, blurred bg, accent current number)
+- Slide counter badge (top-right)
 - Touch swipe on image area cycles slides
 - Keyboard: Left/Right arrows cycle slides when focused
 - Staggered fade-in via IntersectionObserver (threshold 0.08)
-- Desktop hover enhancement: translateY(-4px), glow border, image scale 1.03x
 
 ### Buttons (`.btn-primary`, `.btn-ghost`)
 - Full-width on mobile, inline on desktop
-- Pill-shaped (50px radius), inline-flex with icon gap
-- Minimum tap target 44×44px
-- Primary: gradient gold/orange, hover lift + stronger shadow (desktop)
-- Ghost: bordered, hover fills accent glow (desktop)
-- Tap/click ripple effect (`.ripple` span with scale-out animation)
+- Minimum tap target 44×44px 
+- Ghost: bordered
+- Tap/click ripple effect
 - Active state: scale(0.97)
 
 ### Lightbox
@@ -90,45 +61,30 @@ Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 
 |---|---|
 | Open | Click any `.project` card |
 | Close | × button (top-right, 44×44px min target), backdrop tap, Escape key |
-| Navigate | Prev/Next buttons, Left/Right arrow keys, touch swipe (>50px delta). Nav buttons larger on mobile for easy tapping. |
-| Slides | Cloned from source project on open, rebuilt each time |
+| Navigate | Prev/Next buttons, Left/Right arrow keys, touch swipe (>50px delta). Nav buttons larger on mobile for easy tapping. | 
 | Animation | Direction-aware: prev slides offset -8%, next slides +8% |
 | Counter | Bottom-center pill: "1 / 3" |
 | Caption | Reads project title + description, fades in |
 | Scroll lock | `body.style.overflow = 'hidden'` while open |
-| Backdrop | 92% black + blur(12px) |
 
 ---
 
 ## 5. Interactions
-
-| Interaction | Trigger | Behavior |
-|---|---|---|
-| Nav style | Scroll >80px | `.scrolled` class |
-| Card fade-in | Scroll into viewport | IntersectionObserver adds `.visible` |
-| Element reveal | Scroll | `revealOnScroll()` adds `.visible` when `rect.top < 0.88 * windowH` |
-| Image hover | Card hover | Image scale 1.03, glow sweep left→right |
-| Button hover | Hover | Lift 2px, shadow deepens |
-| Button click | Click | Ripple wave animation |
-| Lightbox | Card click | Fullscreen overlay, slides cloned from card |
-| Lightbox nav | Arrow keys / buttons / swipe | Slides transition with direction offset |
-| Lightbox close | × / backdrop / Escape | Fade out, restore scroll |
-
-**Revealed elements** (scroll-triggered): `.section-eyebrow`, `.intro h2`, `.intro p`, `.project-number`, `.project-info h3`, `.project-desc`, `.about h2`, `.about-text`, `.footer`
+  
 
 ---
 
 ## 6. Images
+
+See [design.md](design.md) §3 for image specs.
 
 | Property | Value |
 |---|---|
 | Format | AVIF only |
 | Naming | `{1-3}.avif` inside each `projectN/` |
 | Count | 15 images (5 projects × 3 slides) |
-| Dimensions | 1650 × 1275 |
 | Loading | Eager (no `loading` attribute) |
 | Preload | `projects/project1/1.avif` only |
-| Object-fit | `cover` in cards, `contain` in lightbox |
 
 ---
 
@@ -166,8 +122,7 @@ Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 
 - Downloadable PDF portfolio adds value for both users and search engines
 
 ## 8. Accessibility
-
-- Skip link (hidden, appears on focus)
+ 
 - Semantic landmarks: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`
 - ARIA labels on nav, sections, lightbox (toggles `aria-hidden`)
 - `prefers-reduced-motion`: all animations/transitions disabled
@@ -179,14 +134,14 @@ Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 
 
 ## 9. Responsive (Mobile-First)
 
-Base styles target the smallest viewport. Enhancements applied via `min-width` breakpoints.
+Base styles target the smallest viewport. Enhancements applied via `min-width` breakpoints. Visual specs: see [design.md](design.md) §4.
 
-| Breakpoint | Key changes |
+| Breakpoint | Layout changes |
 |---|---|
-| **Base (mobile, <480px)** | Single-column layout, compact padding (1.25rem sides), stacked full-width buttons, smaller hero title (2.5rem), smaller nav text (0.75rem), lightbox nav buttons larger for touch |
-| **≥480px** | Hero title scales up (clamp), hero sub scales up (1.1rem), nav text returns to 0.85rem |
-| **≥768px (tablet)** | Multi-column grid activates, site padding increases (2.5rem sides), footer row layout, lightbox track returns to original aspect-ratio |
-| **Print** | White bg, black text, hide nav/marquee/shimmer |
+| **Base (mobile, <480px)** | Single-column layout, stacked full-width buttons, lightbox nav buttons larger for touch |
+| **≥480px** | — |
+| **≥768px (tablet)** | Multi-column grid activates, footer row layout |
+| **Print** | Hide nav/marquee/shimmer |
 | **Reduced motion** | All animations off, all reveals visible immediately |
 
 ---
