@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holly Matthews — Prototype Browser</title>
+<meta name="description" content="Portfolio prototypes for Holly Matthews — browse 50+ unique designs">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;padding:40px 24px;min-height:100vh}
+h1{font-size:clamp(28px,4vw,48px);font-weight:700;margin-bottom:8px;letter-spacing:-.03em}
+.sub{color:#6e6e73;font-size:16px;margin-bottom:40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{background:#1a1a1a;border-radius:14px;overflow:hidden;border:1px solid #2a2a2a;transition:all .3s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-4px);border-color:#3a3a3a;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.card-preview{height:140px;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;overflow:hidden}
+.card-preview .num{font-size:72px;font-weight:900;opacity:.1;position:absolute;right:-8px;bottom:-12px;color:#fff}
+.card-body{padding:16px;flex:1;display:flex;flex-direction:column}
+.card-title{font-size:15px;font-weight:600;margin-bottom:4px}
+.card-desc{font-size:12px;color:#6e6e73;margin-bottom:12px;flex:1;line-height:1.4}
+.card-link{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;background:#2a2a2a;color:#fff;font-size:13px;font-weight:500;text-decoration:none;transition:all .2s;align-self:flex-start}
+.card-link:hover{background:#3a3a3a}
+.footer-info{margin-top:40px;padding-top:20px;border-top:1px solid #2a2a2a;font-size:12px;color:#6e6e73}
+</style>
+</head>
+<body>
+
+<h1>Holly Matthews</h1>
+<p class="sub">Portfolio Prototypes — <span id="count">0</span> unique designs</p>
+
+<div class="grid" id="grid">
+
+  <div class="card">
+    <div class="card-preview" style="background:linear-gradient(135deg,#000,#1a1a1a)"><span class="num">001</span>🍎</div>
+    <div class="card-body">
+      <div class="card-title">001 — Apple Minimalist</div>
+      <div class="card-desc">Clean, product-style design inspired by apple.com. Dark hero, white content, SF typography.</div>
+      <a class="card-link" href="001/index.html" target="_blank" rel="noopener">Open →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-preview" style="background:linear-gradient(135deg,#0a0a2e,#1a0a3e)"><span class="num">002</span>✦</div>
+    <div class="card-body">
+      <div class="card-title">002 — Antigravity Playful</div>
+      <div class="card-desc">Playful, gravity-defying design inspired by antigravity.google. Floating elements, bold gradients.</div>
+      <a class="card-link" href="002/index.html" target="_blank" rel="noopener">Open →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-preview" style="background:linear-gradient(135deg,#667eea,#764ba2)"><span class="num">003</span>◇</div>
+    <div class="card-body">
+      <div class="card-title">003 — Glassmorphism</div>
+      <div class="card-desc">Frosted glass panels with vibrant purple-blue gradients and backdrop blur effects.</div>
+      <a class="card-link" href="003/index.html" target="_blank" rel="noopener">Open →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-preview" style="background:linear-gradient(135deg,#faf0f5,#fff0f5)"><span class="num">004</span>✿</div>
+    <div class="card-body">
+      <div class="card-title">004 — Feminine Elegance</div>
+      <div class="card-desc">Soft, elegant design with rose tones, Playfair Display serif typography, and delicate flourishes.</div>
+      <a class="card-link" href="004/index.html" target="_blank" rel="noopener">Open →</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer-info">
+  <p>Each prototype is self-contained and deployable independently.</p>
+</div>
+
+<script>document.getElementById('count').textContent=document.querySelectorAll('.card').length</script>
+</body>
+</html>
