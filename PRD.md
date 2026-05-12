@@ -69,7 +69,7 @@ Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 
 ### Project Card
 - Tap/click anywhere → opens lightbox
 - Single column full-width on mobile; grid layout on wider screens
-- 3 slides per project (AVIF, 1650×1275, lazy-loaded)
+- 3 slides per project (AVIF, 1650×1275)
 - Slide counter badge (top-right, blurred bg, accent current number)
 - Touch swipe on image area cycles slides
 - Keyboard: Left/Right arrows cycle slides when focused
@@ -123,11 +123,11 @@ Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 
 | Property | Value |
 |---|---|
 | Format | AVIF only |
-| Naming | `project-{1-5}-{1-3}.avif` |
+| Naming | `{1-3}.avif` inside each `projectN/` |
 | Count | 15 images (5 projects × 3 slides) |
 | Dimensions | 1650 × 1275 |
-| Loading | `loading="lazy"` |
-| Preload | `project-1-1.avif` only |
+| Loading | Eager (no `loading` attribute) |
+| Preload | `projects/project1/1.avif` only |
 | Object-fit | `cover` in cards, `contain` in lightbox |
 
 ---
@@ -153,7 +153,7 @@ Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 
 ### Technical SEO
 | Factor | Implementation |
 |---|---|
-| **Page speed** | Zero dependencies, no render-blocking resources beyond fonts + single CSS, AVIF images, `loading="lazy"` on all images, preload on first hero image |
+| **Page speed** | Zero dependencies, no render-blocking resources beyond fonts + single CSS, AVIF images, preload on first hero image |
 | **Core Web Vitals** | Minimal CLS (explicit image dimensions 1650×1275), fast LCP (preloaded hero image), responsive layout |
 | **Mobile-friendliness** | Mobile-first CSS, touch targets ≥44×44px, responsive images |
 | **Crawlability** | All content is static HTML — no JS required for indexing. Links are real `<a href>` elements. |
@@ -199,30 +199,32 @@ shared/                          ← Global layout, behaviour, utilities
   script.js                      — Lightbox, scroll reveals, ripple, nav state, IntersectionObserver
 
 projects/                        ← One vertical slice per project
-  project-1/
-    project-1-1.avif
-    project-1-2.avif
-    project-1-3.avif
-  project-2/
-    project-2-1.avif
-    project-2-2.avif
-    project-2-3.avif
-  project-3/
-    project-3-1.avif
-    project-3-2.avif
-    project-3-3.avif
-  project-4/
-    project-4-1.avif
-    project-4-2.avif
-    project-4-3.avif
-  project-5/
-    project-5-1.avif
-    project-5-2.avif
-    project-5-3.avif
+  project1/
+    1.avif
+    2.avif
+    3.avif
+  project2/
+    1.avif
+    2.avif
+    3.avif
+  project3/
+    1.avif
+    2.avif
+    3.avif
+  project4/
+    1.avif
+    2.avif
+    3.avif
+  project5/
+    1.avif
+    2.avif
+    3.avif
 
 index.html                       — Entry point, composes all slices
 HollyMatthewsPortfolio.pdf       — Global asset (downloadable PDF)
 CNAME                            — Custom domain: hollymatthews.co.uk
+robots.txt                       — Allow crawling
+sitemap.xml                      — Sitemap for single-page site
 favicon                          — Inline SVG emoji (🎨)
 ```
 
@@ -236,19 +238,19 @@ Each project is a self-contained vertical slice with its own asset directory. Th
 
 | Principle | Application |
 |---|---|
-| **Slice ownership** | All assets for a project live in `projects/project-N/`. No cross-slice file dependencies. |
+| **Slice ownership** | All assets for a project live in `projects/projectN/`. No cross-slice file dependencies. |
 | **Shared layer** | Global concerns (layout, navigation, lightbox, animations) live in `shared/`. Slices import from shared; shared never imports from slices. |
-| **Feature-prefixed classes** | CSS class names use the slice name as a prefix (`.project-1`, `.project-2`, etc.) to avoid collisions and make ownership clear. |
+| **Feature-prefixed classes** | CSS class names use the slice name as a prefix (`.project1`, `.project2`, etc.) to avoid collisions and make ownership clear. |
 | **Entry point composes** | `index.html` is the composition root — it references shared assets and each slice's markup. No slice knows about other slices. |
-| **Scalability** | Adding a new project means: (1) create `projects/project-N/`, (2) add images, (3) add markup in `index.html`. No CSS or JS changes needed unless new interactions are required. |
+| **Scalability** | Adding a new project means: (1) create `projects/projectN/`, (2) add images, (3) add markup in `index.html`. No CSS or JS changes needed unless new interactions are required. |
 
 ### Slice boundary example
 
 ```
-projects/project-3/          ← Entire feature for "Motion & Interaction Design"
-  project-3-1.avif
-  project-3-2.avif
-  project-3-3.avif
+projects/project3/          ← Entire feature for "Motion & Interaction Design"
+  1.avif
+  2.avif
+  3.avif
 ```
 
 The slice contains its images only. Its markup lives in `index.html` under a `<article class="project" data-project="3">`. Global lightbox code in `shared/script.js` handles the interaction generically via `data-project` attributes — no project-specific JS needed.
@@ -259,13 +261,13 @@ The slice contains its images only. Its markup lives in `index.html` under a `<a
 - **Hover features are progressive:** Card lifts, glow sweeps, underline animations are wrapped in `@media (hover: hover)` to avoid sticky-hover bugs on touch devices
 - **Scroll-triggered reveals:** Threshold accounts for mobile viewport; elements reveal earlier (`0.88 * windowH`) to compensate for shorter screens
 - **Lightbox swipe:** Native touch handling with 50px delta threshold — no gesture library needed
-- **Images:** Lazy-loaded by default; first project image preloaded for immediate LCP
+- **Images:** Eager-loaded (no lazy loading); first project image preloaded for immediate LCP
 - **No hamburger menu:** Nav links are few (3 items), fit inline even at the smallest viewport
 - **Buttons stack vertically** on mobile (flex-wrap with gap) to avoid overflow
 
 ## 13. Edge Cases & States
 
-- **Loading:** Lazy images show nothing until loaded (no skeleton/placeholder)
+- **Loading:** Images load immediately with the page; no skeleton/placeholder
 - **Empty:** N/A — content is static HTML
 - **Error:** No image error handling; no JS error fallbacks
 - **JS disabled:** Site is fully static (lightbox won't open, scroll reveals invisible, but content is readable)
