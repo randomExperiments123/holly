@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holly Matthews — Portfolio</title>
+<meta name="description" content="Holly Matthews — graphic design portfolio. Swiss/International style.">
+<meta property="og:title" content="Holly Matthews — Portfolio">
+<meta property="og:description" content="Portfolio of Holly Matthews, graphic design student.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ff0000'>■</text></svg>">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#fff;color:#000;line-height:1.3;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.skip-link{position:absolute;top:-100%;left:0;z-index:100;padding:12px 24px;background:#ff0000;color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.skip-link:focus{top:0}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;background:#fff;border-bottom:2px solid #000}
+.nav-logo{font-size:16px;font-weight:900;text-transform:uppercase;letter-spacing:.15em;color:#ff0000}
+.nav-links{display:flex;gap:4px}
+.nav-link{padding:6px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#000;border:2px solid #000;transition:all .15s}
+.nav-link:hover{background:#000;color:#fff}
+.hero{min-height:80vh;display:grid;grid-template-columns:1fr 1fr;position:relative}
+@media(max-width:768px){.hero{grid-template-columns:1fr}}
+.hero-main{padding:120px 24px 60px;display:flex;flex-direction:column;justify-content:center;border-right:2px solid #000;position:relative}
+@media(max-width:768px){.hero-main{border-right:none;border-bottom:2px solid #000}}
+.hero-main::after{content:'';position:absolute;top:0;right:-12px;width:24px;height:24px;background:#ff0000;transform:rotate(45deg)}@media(max-width:768px){.hero-main::after{display:none}}
+.hero-side{padding:120px 24px 60px;display:flex;flex-direction:column;justify-content:center;background:#f5f5f5}
+.hero-eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:#ff0000;margin-bottom:12px}
+.hero-title{font-size:clamp(40px,8vw,80px);font-weight:900;line-height:.9;letter-spacing:-.04em;text-transform:uppercase;margin-bottom:16px}
+.hero-sub{font-size:14px;font-weight:400;color:#666;line-height:1.5;margin-bottom:32px;max-width:400px;text-transform:uppercase;letter-spacing:.05em}
+.hero-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:#000;color:#fff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;border:none;cursor:pointer;transition:all .15s;font-family:inherit}
+.btn-primary:hover{background:#ff0000}
+.btn-ghost{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:transparent;color:#000;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;border:2px solid #000;cursor:pointer;transition:all .15s;font-family:inherit}
+.btn-ghost:hover{background:#000;color:#fff}
+.section{padding:80px 0}
+.section-inner{max-width:1200px;margin:0 auto;padding:0 24px}
+.section-header{display:flex;align-items:baseline;gap:24px;margin-bottom:48px;border-bottom:2px solid #000;padding-bottom:8px}
+.section-number{font-size:48px;font-weight:900;color:#ff0000;line-height:1;letter-spacing:-.04em}
+.section-title{font-size:24px;font-weight:900;text-transform:uppercase;letter-spacing:.1em}
+.section-sub{font-size:11px;font-weight:400;color:#666;text-transform:uppercase;letter-spacing:.1em;margin-left:auto}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid #000;border-left:2px solid #000}
+@media(max-width:900px){.projects-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.projects-grid{grid-template-columns:1fr}}
+.project{border-right:2px solid #000;border-bottom:2px solid #000;cursor:pointer;transition:all .15s;position:relative}
+.project:hover{background:#f5f5f5}
+.project-image-area{position:relative;overflow:hidden;aspect-ratio:4/3;border-bottom:2px solid #000}
+.project-slides{display:flex;transition:transform .3s;height:100%}
+.project-slide{flex:0 0 100%;width:100%;height:100%;object-fit:cover}
+.project-counter{position:absolute;bottom:8px;right:8px;background:#fff;color:#000;font-size:10px;font-weight:700;padding:2px 8px;border:2px solid #000}
+.project-number{position:absolute;top:8px;left:8px;background:#ff0000;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;z-index:2}
+.project-info{padding:16px}
+.project-title{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.project-desc{font-size:11px;color:#666;line-height:1.4;text-transform:uppercase;letter-spacing:.03em}
+.about-section{background:#000;color:#fff}
+.about-section .section-header{border-bottom-color:#333}
+.about-section .section-number{color:#ff0000}
+.about-section .section-title{color:#fff}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr}}
+.about-text{font-size:14px;color:#ccc;line-height:1.7;margin-bottom:16px;text-transform:uppercase;letter-spacing:.03em}
+.skills{display:flex;flex-wrap:wrap;gap:6px}
+.skill{padding:6px 14px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;border:2px solid #fff;color:#fff;transition:all .15s}
+.skill:hover{background:#fff;color:#000}
+.contact-section{padding-bottom:80px}
+.contact-grid{display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:center}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr}}
+.contact-text{font-size:32px;font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:1.1}
+.contact-info{text-align:right}
+@media(max-width:768px){.contact-info{text-align:left}}
+.contact-info a{font-size:16px;font-weight:700;color:#ff0000;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid #ff0000}
+.footer{padding:24px;text-align:center;border-top:2px solid #000}
+.footer p{font-size:10px;font-weight:500;color:#666;text-transform:uppercase;letter-spacing:.1em}
+.footer a{color:#ff0000}
+.lightbox{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s}
+.lightbox[data-state=open]{opacity:1;pointer-events:auto}
+.lightbox-backdrop{position:absolute;inset:0;background:rgba(255,255,255,.97)}
+.lightbox-inner{position:relative;max-width:90vw;max-height:90vh;display:flex;flex-direction:column;align-items:center;z-index:1;border:2px solid #000;background:#fff;padding:12px}
+.lightbox-close{position:fixed;top:16px;right:16px;width:44px;height:44px;background:#000;color:#fff;font-size:18px;font-weight:700;border:none;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center}
+.lightbox-close:hover{background:#ff0000}
+.lightbox-nav{position:fixed;top:50%;transform:translateY(-50%);width:44px;height:44px;background:#000;color:#fff;font-size:16px;font-weight:700;border:none;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center}
+.lightbox-nav:hover{background:#ff0000}
+.lightbox-prev{left:16px}.lightbox-next{right:16px}
+.lightbox-track{max-width:100%;max-height:80vh;overflow:hidden}
+.lightbox-track img{max-width:100%;max-height:80vh;object-fit:contain}
+.lightbox-counter{color:#666;font-size:11px;font-weight:700;margin-top:12px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav class="nav"><a href="#" class="nav-logo">■ HM</a><div class="nav-links"><a href="#work" class="nav-link">Work</a><a href="#about" class="nav-link">About</a><a href="#contact" class="nav-link">Contact</a></div></nav>
+<main id="main">
+<section class="hero"><div class="hero-main"><p class="hero-eyebrow">Portfolio 2026</p><h1 class="hero-title">Holly<br>Matthews</h1><p class="hero-sub">Graphic Design Student — Brand Identity, Editorial, Motion, Packaging, Illustration</p><div class="hero-actions"><a href="#work" class="btn-primary">View projects</a><a href="HollyMatthewsPortfolio.pdf" class="btn-ghost" download>Download PDF</a></div></div><div class="hero-side"><p style="font-size:120px;font-weight:900;color:#ff0000;line-height:.8;letter-spacing:-.06em;margin-bottom:24px">GD</p><p style="font-size:11px;color:#666;text-transform:uppercase;letter-spacing:.15em;font-weight:700">5 Projects<br>2026</p></div></section>
+<section id="work" class="section"><div class="section-inner"><div class="section-header"><span class="section-number">01</span><h2 class="section-title">Projects</h2><span class="section-sub">Selected work</span></div><div class="projects-grid">
+<article class="project" data-project="1" itemprop itemscope itemtype="https://schema.org/VisualArtwork"><meta itemprop="name" content="Nordica Coffee"><div class="project-image-area" role="button" tabindex="0"><div class="project-slides"><img src="projects/project1/1.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project1/2.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project1/3.avif" alt="" class="project-slide" width="1650" height="1275"></div><div class="project-counter">1/3</div><div class="project-number">01</div></div><div class="project-info"><h3 class="project-title">Nordica Coffee</h3><p class="project-desc">Brand identity for specialty coffee roaster</p></div></article>
+<article class="project" data-project="2" itemprop itemscope itemtype="https://schema.org/VisualArtwork"><meta itemprop="name" content="Urban Perspectives"><div class="project-image-area" role="button" tabindex="0"><div class="project-slides"><img src="projects/project2/1.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project2/2.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project2/3.avif" alt="" class="project-slide" width="1650" height="1275"></div><div class="project-counter">1/3</div><div class="project-number">02</div></div><div class="project-info"><h3 class="project-title">Urban Perspectives</h3><p class="project-desc">Editorial design / urban photography</p></div></article>
+<article class="project" data-project="3" itemprop itemscope itemtype="https://schema.org/VisualArtwork"><meta itemprop="name" content="Motion & Interaction"><div class="project-image-area" role="button" tabindex="0"><div class="project-slides"><img src="projects/project3/1.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project3/2.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project3/3.avif" alt="" class="project-slide" width="1650" height="1275"></div><div class="project-counter">1/3</div><div class="project-number">03</div></div><div class="project-info"><h3 class="project-title">Motion &amp; Interaction</h3><p class="project-desc">UI animation / kinetic typography</p></div></article>
+<article class="project" data-project="4" itemprop itemscope itemtype="https://schema.org/VisualArtwork"><meta itemprop="name" content="Botanic"><div class="project-image-area" role="button" tabindex="0"><div class="project-slides"><img src="projects/project4/1.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project4/2.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project4/3.avif" alt="" class="project-slide" width="1650" height="1275"></div><div class="project-counter">1/3</div><div class="project-number">04</div></div><div class="project-info"><h3 class="project-title">Botanic</h3><p class="project-desc">Sustainable packaging / botanical skincare</p></div></article>
+<article class="project" data-project="5" itemprop itemscope itemtype="https://schema.org/VisualArtwork"><meta itemprop="name" content="Dreamscapes"><div class="project-image-area" role="button" tabindex="0"><div class="project-slides"><img src="projects/project5/1.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project5/2.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project5/3.avif" alt="" class="project-slide" width="1650" height="1275"></div><div class="project-counter">1/3</div><div class="project-number">05</div></div><div class="project-info"><h3 class="project-title">Dreamscapes</h3><p class="project-desc">Digital illustration / surreal compositions</p></div></article>
+</div></div></section>
+<section id="about" class="section about-section"><div class="section-inner"><div class="section-header"><span class="section-number">02</span><h2 class="section-title">About</h2></div><div class="about-grid"><div><p class="about-text">Graphic design student with a focus on brand storytelling, editorial craft, and digital experimentation. Five projects spanning five disciplines.</p><p class="about-text">Available for placement opportunities and freelance projects.</p><a href="HollyMatthewsPortfolio.pdf" class="btn-primary" style="background:#fff;color:#000">Download portfolio</a></div><div><div class="skills" style="margin-bottom:24px"><span class="skill">Brand ID</span><span class="skill">Logo</span><span class="skill">Typography</span><span class="skill">Editorial</span><span class="skill">Motion</span><span class="skill">UI</span><span class="skill">Packaging</span><span class="skill">Illustration</span><span class="skill">Adobe CS</span><span class="skill">Figma</span></div></div></div></div></section>
+<section id="contact" class="section contact-section"><div class="section-inner"><div class="section-header"><span class="section-number">03</span><h2 class="section-title">Contact</h2></div><div class="contact-grid"><p class="contact-text">Let's work together</p><div class="contact-info"><a href="mailto:info@hollymatthews.co.uk">info@hollymatthews.co.uk</a></div></div></div></section>
+</main>
+<footer class="footer"><p>&copy; 2026 Holly Matthews — <a href="mailto:info@hollymatthews.co.uk">info@hollymatthews.co.uk</a></p></footer>
+<div class="lightbox" data-state="closed"><div class="lightbox-backdrop"></div><div class="lightbox-inner"><button class="lightbox-close">&times;</button><button class="lightbox-nav lightbox-prev">←</button><button class="lightbox-nav lightbox-next">→</button><div class="lightbox-track"></div><div class="lightbox-counter">1/3</div></div></div>
+<script>(function(){'use strict';var lb=document.querySelector('.lightbox'),backdrop=lb.querySelector('.lightbox-backdrop'),closeBtn=lb.querySelector('.lightbox-close'),prevBtn=lb.querySelector('.lightbox-prev'),nextBtn=lb.querySelector('.lightbox-next'),track=lb.querySelector('.lightbox-track'),counter=lb.querySelector('.lightbox-counter'),projects=document.querySelectorAll('.project'),cP=0,cS=0;projects.forEach(function(p,i){var a=p.querySelector('.project-image-area');if(a){a.addEventListener('click',function(){open(i,0)});a.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(i,0)}})}});function open(p,s){cP=p;cS=s;var sl=projects[p].querySelectorAll('.project-slide');up(sl);lb.setAttribute('data-state','open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+function up(sl){track.innerHTML='';var i=document.createElement('img');i.src=sl[cS].src;i.alt=sl[cS].alt||'';i.loading='eager';track.appendChild(i);counter.textContent=(cS+1)+'/'+sl.length}
+closeBtn.addEventListener('click',function(){lb.setAttribute('data-state','closed');document.body.style.overflow=''});
+backdrop.addEventListener('click',function(){lb.setAttribute('data-state','closed');document.body.style.overflow=''});
+prevBtn.addEventListener('click',function(){var sl=projects[cP].querySelectorAll('.project-slide');cS=(cS-1+sl.length)%sl.length;up(sl)});
+nextBtn.addEventListener('click',function(){var sl=projects[cP].querySelectorAll('.project-slide');cS=(cS+1)%sl.length;up(sl)});
+document.addEventListener('keydown',function(e){if(lb.getAttribute('data-state')!=='open')return;if(e.key==='Escape')closeBtn.click();if(e.key==='ArrowLeft')prevBtn.click();if(e.key==='ArrowRight')nextBtn.click()})})();</script>
+</body>
+</html>
