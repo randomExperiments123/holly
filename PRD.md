@@ -8,7 +8,8 @@ Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 
 **Stack:** Vanilla HTML / CSS / JS — zero dependencies or build tools  
 **Hosting:** Static (GitHub Pages or equivalent)  
 **Approach:** Mobile-first — base styles target small screens, `min-width` breakpoints enhance upward. Touch interactions are primary; desktop hover/ keyboard are progressive enhancements.  
-**SEO:** High priority — semantic HTML, structured data, meta tags, performance optimization, accessibility all serve search visibility.
+**SEO:** High priority — semantic HTML, structured data, meta tags, performance optimization, accessibility all serve search visibility.  
+**Architecture:** Vertical Slice — each project is an independent slice containing its own assets (images). CSS and JS use feature-prefixed class names scoped to their slice. Shared layout/behaviour lives in global styles and scripts.
 
 ---
 
@@ -190,26 +191,69 @@ Base styles target the smallest viewport. Enhancements applied via `min-width` b
 
 ---
 
-## 10. File Structure
+## 10. File Structure (Vertical Slices)
 
 ```
-index.html           — Single-page HTML
-style.css            — All styles (1069 lines, no framework)
-script.js            — All JS (230 lines, vanilla, IIFE)
-images/
-  project-1/         — project-1-1.avif, project-1-2.avif, project-1-3.avif
-  project-2/         — project-2-1.avif, project-2-2.avif, project-2-3.avif
-  project-3/         — project-3-1.avif, project-3-2.avif, project-3-3.avif
-  project-4/         — project-4-1.avif, project-4-2.avif, project-4-3.avif
-  project-5/         — project-5-1.avif, project-5-2.avif, project-5-3.avif
-HollyMatthewsPortfolio.pdf  — Downloadable portfolio PDF
-CNAME                — Custom domain: hollymatthews.co.uk
-favicon              — Inline SVG emoji (🎨)
+shared/                          ← Global layout, behaviour, utilities
+  style.css                      — Resets, variables, typography, nav, hero, lightbox, responsive
+  script.js                      — Lightbox, scroll reveals, ripple, nav state, IntersectionObserver
+
+projects/                        ← One vertical slice per project
+  project-1/
+    project-1-1.avif
+    project-1-2.avif
+    project-1-3.avif
+  project-2/
+    project-2-1.avif
+    project-2-2.avif
+    project-2-3.avif
+  project-3/
+    project-3-1.avif
+    project-3-2.avif
+    project-3-3.avif
+  project-4/
+    project-4-1.avif
+    project-4-2.avif
+    project-4-3.avif
+  project-5/
+    project-5-1.avif
+    project-5-2.avif
+    project-5-3.avif
+
+index.html                       — Entry point, composes all slices
+HollyMatthewsPortfolio.pdf       — Global asset (downloadable PDF)
+CNAME                            — Custom domain: hollymatthews.co.uk
+favicon                          — Inline SVG emoji (🎨)
 ```
 
 ---
 
-## 11. Mobile-First Considerations
+## 11. Vertical Slice Architecture
+
+Each project is a self-contained vertical slice with its own asset directory. This keeps feature boundaries explicit and makes it easy to add, remove, or reorder projects without touching unrelated code.
+
+### Principles
+
+| Principle | Application |
+|---|---|
+| **Slice ownership** | All assets for a project live in `projects/project-N/`. No cross-slice file dependencies. |
+| **Shared layer** | Global concerns (layout, navigation, lightbox, animations) live in `shared/`. Slices import from shared; shared never imports from slices. |
+| **Feature-prefixed classes** | CSS class names use the slice name as a prefix (`.project-1`, `.project-2`, etc.) to avoid collisions and make ownership clear. |
+| **Entry point composes** | `index.html` is the composition root — it references shared assets and each slice's markup. No slice knows about other slices. |
+| **Scalability** | Adding a new project means: (1) create `projects/project-N/`, (2) add images, (3) add markup in `index.html`. No CSS or JS changes needed unless new interactions are required. |
+
+### Slice boundary example
+
+```
+projects/project-3/          ← Entire feature for "Motion & Interaction Design"
+  project-3-1.avif
+  project-3-2.avif
+  project-3-3.avif
+```
+
+The slice contains its images only. Its markup lives in `index.html` under a `<article class="project" data-project="3">`. Global lightbox code in `shared/script.js` handles the interaction generically via `data-project` attributes — no project-specific JS needed.
+
+## 12. Mobile-First Considerations
 
 - **Touch targets:** All interactive elements ≥44×44px per WCAG 2.5.5
 - **Hover features are progressive:** Card lifts, glow sweeps, underline animations are wrapped in `@media (hover: hover)` to avoid sticky-hover bugs on touch devices
@@ -219,7 +263,7 @@ favicon              — Inline SVG emoji (🎨)
 - **No hamburger menu:** Nav links are few (3 items), fit inline even at the smallest viewport
 - **Buttons stack vertically** on mobile (flex-wrap with gap) to avoid overflow
 
-## 12. Edge Cases & States
+## 13. Edge Cases & States
 
 - **Loading:** Lazy images show nothing until loaded (no skeleton/placeholder)
 - **Empty:** N/A — content is static HTML
