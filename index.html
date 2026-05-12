@@ -3,165 +3,201 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Holly Matthews — Portfolio showcasing 5 design projects.">
-  <meta name="author" content="Holly Matthews">
-  <meta name="keywords" content="designer, portfolio, graphic design">
-  <meta property="og:title" content="Holly Matthews — Portfolio">
-  <meta property="og:description" content="Portfolio showcasing 5 design projects by Holly Matthews.">
+  <title>Holly Matthews — Graphic Design Portfolio</title>
+  <meta name="description" content="Portfolio of Holly Matthews, graphic design student. Showcasing brand identity, editorial design, motion graphics, packaging, and digital illustration.">
+  <meta property="og:title" content="Holly Matthews — Graphic Design Portfolio">
+  <meta property="og:description" content="Portfolio of Holly Matthews, graphic design student. Showcasing brand identity, editorial design, motion graphics, packaging, and digital illustration.">
   <meta property="og:type" content="website">
-  <title>Holly Matthews — Portfolio</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+  <meta property="og:url" content="https://hollymatthews.co.uk">
+  <link rel="canonical" href="https://hollymatthews.co.uk">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="projects/project-1/project-1-1.avif" type="image/avif">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="shared/style.css">
-  <script src="shared/script.js" defer></script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+  <link rel="preload" href="projects/project-1/project-1-1.avif" as="image">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="hero" role="banner">
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="#" class="nav-logo">HM</a>
-      <ul class="nav-links">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="mailto:info@hollymatthews.co.uk">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="hero-inner">
-      <div class="hero-eyebrow">Designer &amp; Creative Thinker</div>
-      <h1>Holly Matthews</h1>
-      <p class="hero-sub">I craft bold visual identities and purposeful design that lives at the intersection of aesthetics and strategy.</p>
-      <div class="hero-actions">
-        <a href="HollyMatthewsPortfolio.pdf" download class="btn-primary">
-          <span>Download Portfolio</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        </a>
-        <a href="mailto:info@hollymatthews.co.uk" class="btn-ghost">
-          Get in Touch
-        </a>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="header" role="banner">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#" class="nav-logo" aria-label="Holly Matthews home">HM</a>
+      <div class="nav-links">
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </div>
-    </div>
-    <div class="hero-marquee" aria-hidden="true">
-      <span>Design is thinking made visual — Design is thinking made visual — Design is thinking made visual — Design is thinking made visual — Design is thinking made visual — Design is thinking made visual — Design is thinking made visual</span>
-    </div>
+    </nav>
   </header>
 
   <main id="main">
-    <section class="intro" id="work" aria-label="Selected work">
-      <p class="section-eyebrow">Selected Work</p>
-      <h2>A curated collection of projects exploring different facets of design thinking and visual storytelling.</h2>
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-content">
+        <p class="section-eyebrow">Portfolio 2026</p>
+        <h1 class="hero-title">Holly Matthews</h1>
+        <p class="hero-sub">Graphic Design Student &mdash; brand identity, editorial, motion, and illustration</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn-primary">View Projects <span class="btn-icon" aria-hidden="true">&darr;</span></a>
+          <a href="HollyMatthewsPortfolio.pdf" class="btn-ghost" download>Download Portfolio <span class="btn-icon" aria-hidden="true">&darr;</span></a>
+        </div>
+      </div>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Graphic Design &bull; Brand Identity &bull; Editorial Design &bull; Motion Graphics &bull; Packaging &bull; Illustration &bull;</span>
+          <span>Graphic Design &bull; Brand Identity &bull; Editorial Design &bull; Motion Graphics &bull; Packaging &bull; Illustration &bull;</span>
+        </div>
+      </div>
     </section>
 
-    <section class="projects" aria-label="Projects">
-      <article class="project" itemscope itemtype="https://schema.org/VisualArtwork" data-project="1">
-        <div class="project-images">
-          <picture class="slide active"><source srcset="projects/project-1/project-1-1.avif" type="image/avif"><img src="projects/project-1/project-1-1.avif" alt="Project 1 — overview" loading="lazy" width="1650" height="1275"></picture>
-          <picture class="slide"><source srcset="projects/project-1/project-1-2.avif" type="image/avif"><img src="projects/project-1/project-1-2.avif" alt="Project 1 — detail" loading="lazy" width="1650" height="1275"></picture>
-          <picture class="slide"><source srcset="projects/project-1/project-1-3.avif" type="image/avif"><img src="projects/project-1/project-1-3.avif" alt="Project 1 — final" loading="lazy" width="1650" height="1275"></picture>
-          <span class="slide-count"><span class="current">1</span>/3</span>
-        </div>
-        <div class="project-info">
-          <span class="project-number">01</span>
-          <h3 itemprop="name">Visual Identity — Brand Systems</h3>
-          <p itemprop="description" class="project-desc">An exploration of cohesive brand identity systems across print and digital touchpoints.</p>
-        </div>
-      </article>
-
-      <article class="project" itemscope itemtype="https://schema.org/VisualArtwork" data-project="2">
-        <div class="project-images">
-          <picture class="slide active"><source srcset="projects/project-2/project-2-1.avif" type="image/avif"><img src="projects/project-2/project-2-1.avif" alt="Project 2 — overview" loading="lazy" width="1650" height="1275"></picture>
-          <picture class="slide"><source srcset="projects/project-2/project-2-2.avif" type="image/avif"><img src="projects/project-2/project-2-2.avif" alt="Project 2 — detail" loading="lazy" width="1650" height="1275"></picture>
-          <picture class="slide"><source srcset="projects/project-2/project-2-3.avif" type="image/avif"><img src="projects/project-2/project-2-3.avif" alt="Project 2 — final" loading="lazy" width="1650" height="1275"></picture>
-          <span class="slide-count"><span class="current">1</span>/3</span>
-        </div>
-        <div class="project-info">
-          <span class="project-number">02</span>
-          <h3 itemprop="name">Editorial &amp; Typography</h3>
-          <p itemprop="description" class="project-desc">Typographic layouts and editorial design pushing the boundaries of visual hierarchy.</p>
-        </div>
-      </article>
-
-      <article class="project" itemscope itemtype="https://schema.org/VisualArtwork" data-project="3">
-        <div class="project-images">
-          <picture class="slide active"><source srcset="projects/project-3/project-3-1.avif" type="image/avif"><img src="projects/project-3/project-3-1.avif" alt="Project 3 — overview" loading="lazy" width="1650" height="1275"></picture>
-          <picture class="slide"><source srcset="projects/project-3/project-3-2.avif" type="image/avif"><img src="projects/project-3/project-3-2.avif" alt="Project 3 — detail" loading="lazy" width="1650" height="1275"></picture>
-          <picture class="slide"><source srcset="projects/project-3/project-3-3.avif" type="image/avif"><img src="projects/project-3/project-3-3.avif" alt="Project 3 — final" loading="lazy" width="1650" height="1275"></picture>
-          <span class="slide-count"><span class="current">1</span>/3</span>
-        </div>
-        <div class="project-info">
-          <span class="project-number">03</span>
-          <h3 itemprop="name">Motion &amp; Interaction Design</h3>
-          <p itemprop="description" class="project-desc">Dynamic motion design and interactive experiences that engage and delight users.</p>
-        </div>
-      </article>
-
-      <article class="project" itemscope itemtype="https://schema.org/VisualArtwork" data-project="4">
-        <div class="project-images">
-          <picture class="slide active"><source srcset="projects/project-4/project-4-1.avif" type="image/avif"><img src="projects/project-4/project-4-1.avif" alt="Project 4 — overview" loading="lazy" width="1650" height="1275"></picture>
-          <picture class="slide"><source srcset="projects/project-4/project-4-2.avif" type="image/avif"><img src="projects/project-4/project-4-2.avif" alt="Project 4 — detail" loading="lazy" width="1650" height="1275"></picture>
-          <picture class="slide"><source srcset="projects/project-4/project-4-3.avif" type="image/avif"><img src="projects/project-4/project-4-3.avif" alt="Project 4 — final" loading="lazy" width="1650" height="1275"></picture>
-          <span class="slide-count"><span class="current">1</span>/3</span>
-        </div>
-        <div class="project-info">
-          <span class="project-number">04</span>
-          <h3 itemprop="name">Environmental &amp; Spatial Design</h3>
-          <p itemprop="description" class="project-desc">Designing physical spaces and environmental graphics that shape human experience.</p>
-        </div>
-      </article>
-
-      <article class="project" itemscope itemtype="https://schema.org/VisualArtwork" data-project="5">
-        <div class="project-images">
-          <picture class="slide active"><source srcset="projects/project-5/project-5-1.avif" type="image/avif"><img src="projects/project-5/project-5-1.avif" alt="Project 5 — overview" loading="lazy" width="1650" height="1275"></picture>
-          <picture class="slide"><source srcset="projects/project-5/project-5-2.avif" type="image/avif"><img src="projects/project-5/project-5-2.avif" alt="Project 5 — detail" loading="lazy" width="1650" height="1275"></picture>
-          <picture class="slide"><source srcset="projects/project-5/project-5-3.avif" type="image/avif"><img src="projects/project-5/project-5-3.avif" alt="Project 5 — final" loading="lazy" width="1650" height="1275"></picture>
-          <span class="slide-count"><span class="current">1</span>/3</span>
-        </div>
-        <div class="project-info">
-          <span class="project-number">05</span>
-          <h3 itemprop="name">Digital Product Design</h3>
-          <p itemprop="description" class="project-desc">UI/UX design for digital products balancing form, function, and user delight.</p>
-        </div>
-      </article>
+    <section class="intro" aria-label="Introduction">
+      <div class="intro-content">
+        <p class="section-eyebrow">Introduction</p>
+        <h2>A curated collection of projects exploring brand identity, editorial design, motion graphics, packaging, and digital illustration.</h2>
+        <p>Each project represents a different discipline within graphic design, showcasing a range of techniques, concepts, and creative processes developed during my studies.</p>
+      </div>
     </section>
 
-    <section class="about" id="about" aria-label="About">
-      <div class="about-inner">
-        <p class="section-eyebrow">About</p>
-        <h2>Let's create something<br>worth talking about.</h2>
-        <p class="about-text">Currently studying Graphic Design. I'm passionate about crafting meaningful visual experiences that bridge the gap between beauty and purpose. Always open to conversations, collaborations, and new opportunities.</p>
-        <a href="mailto:info@hollymatthews.co.uk" class="btn-primary">
-          <span>Start a conversation</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        </a>
+    <section id="work" class="projects" aria-label="Projects">
+      <div class="projects-grid">
+
+        <article class="project project-1" data-project="1" itemscope itemtype="https://schema.org/VisualArtwork">
+          <meta itemprop="name" content="Brand Identity — Nordica Coffee">
+          <meta itemprop="description" content="A warm, minimalist brand identity system for a specialty coffee roaster. Includes logo, packaging, stationery, and digital presence.">
+          <div class="project-image-area" role="button" tabindex="0" aria-label="Open lightbox for Brand Identity — Nordica Coffee">
+            <div class="project-slides">
+              <img src="projects/project-1/project-1-1.avif" alt="Nordica Coffee — brand style guide overview" class="project-slide" loading="lazy" width="1650" height="1275">
+              <img src="projects/project-1/project-1-2.avif" alt="Nordica Coffee — packaging mockups detail" class="project-slide" loading="lazy" width="1650" height="1275">
+              <img src="projects/project-1/project-1-3.avif" alt="Nordica Coffee — final brand applications" class="project-slide" loading="lazy" width="1650" height="1275">
+            </div>
+            <div class="project-counter" aria-hidden="true"><span class="project-counter-current">1</span> / 3</div>
+            <div class="project-shimmer" aria-hidden="true"></div>
+          </div>
+          <div class="project-info">
+            <p class="project-number">01</p>
+            <h3 class="project-title">Brand Identity &mdash; Nordica Coffee</h3>
+            <p class="project-desc">A warm, minimalist brand identity system for a specialty coffee roaster. Includes logo, packaging, stationery, and digital presence.</p>
+          </div>
+        </article>
+
+        <article class="project project-2" data-project="2" itemscope itemtype="https://schema.org/VisualArtwork">
+          <meta itemprop="name" content="Editorial Design — Urban Perspectives">
+          <meta itemprop="description" content="An editorial design project exploring urban life through photography and typography. A magazine layout capturing the rhythm of the city.">
+          <div class="project-image-area" role="button" tabindex="0" aria-label="Open lightbox for Editorial Design — Urban Perspectives">
+            <div class="project-slides">
+              <img src="projects/project-2/project-2-1.avif" alt="Urban Perspectives — magazine spread overview" class="project-slide" loading="lazy" width="1650" height="1275">
+              <img src="projects/project-2/project-2-2.avif" alt="Urban Perspectives — typography detail" class="project-slide" loading="lazy" width="1650" height="1275">
+              <img src="projects/project-2/project-2-3.avif" alt="Urban Perspectives — final layout" class="project-slide" loading="lazy" width="1650" height="1275">
+            </div>
+            <div class="project-counter" aria-hidden="true"><span class="project-counter-current">1</span> / 3</div>
+            <div class="project-shimmer" aria-hidden="true"></div>
+          </div>
+          <div class="project-info">
+            <p class="project-number">02</p>
+            <h3 class="project-title">Editorial Design &mdash; Urban Perspectives</h3>
+            <p class="project-desc">An editorial design project exploring urban life through photography and typography. A magazine layout capturing the rhythm of the city.</p>
+          </div>
+        </article>
+
+        <article class="project project-3" data-project="3" itemscope itemtype="https://schema.org/VisualArtwork">
+          <meta itemprop="name" content="Motion &amp; Interaction Design">
+          <meta itemprop="description" content="A motion design exploration focusing on UI animation, micro-interactions, and brand storytelling through kinetic typography and transitions.">
+          <div class="project-image-area" role="button" tabindex="0" aria-label="Open lightbox for Motion & Interaction Design">
+            <div class="project-slides">
+              <img src="projects/project-3/project-3-1.avif" alt="Motion design — animation frames overview" class="project-slide" loading="lazy" width="1650" height="1275">
+              <img src="projects/project-3/project-3-2.avif" alt="Motion design — UI interaction detail" class="project-slide" loading="lazy" width="1650" height="1275">
+              <img src="projects/project-3/project-3-3.avif" alt="Motion design — final storyboard" class="project-slide" loading="lazy" width="1650" height="1275">
+            </div>
+            <div class="project-counter" aria-hidden="true"><span class="project-counter-current">1</span> / 3</div>
+            <div class="project-shimmer" aria-hidden="true"></div>
+          </div>
+          <div class="project-info">
+            <p class="project-number">03</p>
+            <h3 class="project-title">Motion &amp; Interaction Design</h3>
+            <p class="project-desc">A motion design exploration focusing on UI animation, micro-interactions, and brand storytelling through kinetic typography and transitions.</p>
+          </div>
+        </article>
+
+        <article class="project project-4" data-project="4" itemscope itemtype="https://schema.org/VisualArtwork">
+          <meta itemprop="name" content="Packaging Design — Botanic">
+          <meta itemprop="description" content="A sustainable packaging design system for a botanical skincare range. Natural textures, muted earth tones, and eco-conscious materials.">
+          <div class="project-image-area" role="button" tabindex="0" aria-label="Open lightbox for Packaging Design — Botanic">
+            <div class="project-slides">
+              <img src="projects/project-4/project-4-1.avif" alt="Botanic — packaging line overview" class="project-slide" loading="lazy" width="1650" height="1275">
+              <img src="projects/project-4/project-4-2.avif" alt="Botanic — product detail and textures" class="project-slide" loading="lazy" width="1650" height="1275">
+              <img src="projects/project-4/project-4-3.avif" alt="Botanic — final retail display" class="project-slide" loading="lazy" width="1650" height="1275">
+            </div>
+            <div class="project-counter" aria-hidden="true"><span class="project-counter-current">1</span> / 3</div>
+            <div class="project-shimmer" aria-hidden="true"></div>
+          </div>
+          <div class="project-info">
+            <p class="project-number">04</p>
+            <h3 class="project-title">Packaging Design &mdash; Botanic</h3>
+            <p class="project-desc">A sustainable packaging design system for a botanical skincare range. Natural textures, muted earth tones, and eco-conscious materials.</p>
+          </div>
+        </article>
+
+        <article class="project project-5" data-project="5" itemscope itemtype="https://schema.org/VisualArtwork">
+          <meta itemprop="name" content="Digital Illustration — Dreamscapes">
+          <meta itemprop="description" content="A series of surreal digital illustrations blending photography and vector art. Explores dream-like landscapes and abstract compositions.">
+          <div class="project-image-area" role="button" tabindex="0" aria-label="Open lightbox for Digital Illustration — Dreamscapes">
+            <div class="project-slides">
+              <img src="projects/project-5/project-5-1.avif" alt="Dreamscapes — illustration series overview" class="project-slide" loading="lazy" width="1650" height="1275">
+              <img src="projects/project-5/project-5-2.avif" alt="Dreamscapes — detail of surreal composition" class="project-slide" loading="lazy" width="1650" height="1275">
+              <img src="projects/project-5/project-5-3.avif" alt="Dreamscapes — final piece in series" class="project-slide" loading="lazy" width="1650" height="1275">
+            </div>
+            <div class="project-counter" aria-hidden="true"><span class="project-counter-current">1</span> / 3</div>
+            <div class="project-shimmer" aria-hidden="true"></div>
+          </div>
+          <div class="project-info">
+            <p class="project-number">05</p>
+            <h3 class="project-title">Digital Illustration &mdash; Dreamscapes</h3>
+            <p class="project-desc">A series of surreal digital illustrations blending photography and vector art. Explores dream-like landscapes and abstract compositions.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="about" class="about" aria-label="About Holly Matthews">
+      <div class="about-content">
+        <h2>About</h2>
+        <p class="about-text">I'm a graphic design student with a passion for brand storytelling, editorial craft, and digital experimentation. I believe great design lives at the intersection of clarity and creativity &mdash; where every shape, colour, and typeface serves a purpose.</p>
+        <p class="about-text">This portfolio brings together five projects that represent the range of my work so far. I'm always looking for new challenges and opportunities to collaborate.</p>
+        <a href="HollyMatthewsPortfolio.pdf" class="btn-primary" download>Download Full Portfolio <span class="btn-icon" aria-hidden="true">&darr;</span></a>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-label="Contact">
+      <div class="contact-content">
+        <p class="section-eyebrow">Get in touch</p>
+        <h2>Let's work together</h2>
+        <p class="contact-text">I'm currently looking for placement opportunities and freelance projects. If you'd like to discuss a project, commission work, or just say hello, drop me an email.</p>
+        <a href="mailto:info@hollymatthews.co.uk" class="btn-primary">info@hollymatthews.co.uk <span class="btn-icon" aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
   </main>
 
-  <!-- Lightbox -->
-  <div class="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
-    <div class="lightbox-backdrop"></div>
-    <div class="lightbox-inner">
-      <button class="lightbox-close" aria-label="Close viewer">&times;</button>
-      <button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button>
-      <button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button>
-      <div class="lightbox-track">
-        <picture class="lightbox-slide active"><source srcset="projects/project-1/project-1-1.avif" type="image/avif"><img src="projects/project-1/project-1-1.avif" alt="" loading="lazy" width="1650" height="1275"></picture>
-        <picture class="lightbox-slide"><source srcset="projects/project-1/project-1-2.avif" type="image/avif"><img src="projects/project-1/project-1-2.avif" alt="" loading="lazy" width="1650" height="1275"></picture>
-        <picture class="lightbox-slide"><source srcset="projects/project-1/project-1-3.avif" type="image/avif"><img src="projects/project-1/project-1-3.avif" alt="" loading="lazy" width="1650" height="1275"></picture>
-      </div>
-      <div class="lightbox-counter"><span class="lightbox-current">1</span> / <span class="lightbox-total">3</span></div>
-      <div class="lightbox-caption"></div>
-    </div>
-  </div>
-
   <footer class="footer" role="contentinfo">
-    <div class="footer-inner">
-      <p>© 2026 Holly Matthews. All rights reserved.</p>
+    <div class="footer-content">
+      <p>&copy; 2026 Holly Matthews. All rights reserved.</p>
       <a href="mailto:info@hollymatthews.co.uk">info@hollymatthews.co.uk</a>
     </div>
   </footer>
+
+  <div class="lightbox" role="dialog" aria-label="Image lightbox" aria-hidden="true" data-state="closed">
+    <div class="lightbox-backdrop" aria-hidden="true"></div>
+    <div class="lightbox-inner">
+      <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+      <button class="lightbox-nav lightbox-prev" aria-label="Previous slide"><span aria-hidden="true">&larr;</span></button>
+      <button class="lightbox-nav lightbox-next" aria-label="Next slide"><span aria-hidden="true">&rarr;</span></button>
+      <div class="lightbox-track" role="img" aria-label="Lightbox image display"></div>
+      <div class="lightbox-counter" aria-live="polite">1 / 3</div>
+      <div class="lightbox-caption" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script src="shared/script.js"></script>
 </body>
 </html>
