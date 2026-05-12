@@ -93,10 +93,11 @@ body {
 }
 
 /* --- Cursor --- */
-*,
-*::before,
-*::after {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='3' cy='3' r='2' fill='%23e8a838'/%3E%3Cline x1='3' y1='3' x2='20' y2='20' stroke='%23e8a838' stroke-width='1.5'/%3E%3C/svg%3E") 3 3, auto; }
+* {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='20' viewBox='0 0 16 20'%3E%3Cpolygon points='1,1 1,15 5.5,10.5 11,18 13,17 7.5,9.5 13,9.5' fill='%23e8a838'/%3E%3C/svg%3E") 1 1, auto; }
+
+button, a, .project, .lightbox-close, .lightbox-nav, input, select, textarea, [role="button"], [type="submit"], [type="button"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='20' viewBox='0 0 16 20'%3E%3Cpolygon points='1,1 1,15 5.5,10.5 11,18 13,17 7.5,9.5 13,9.5' fill='%23e8a838'/%3E%3C/svg%3E") 1 1, pointer; }
 
 /* --- Navigation --- */
 .nav {
