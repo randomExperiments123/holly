@@ -3,15 +3,6 @@
 (function () {
   'use strict';
 
-  // --- Cursor glow follow ---
-  var glow = document.querySelector('.cursor-glow');
-  if (glow) {
-    document.addEventListener('mousemove', function (e) {
-      glow.style.left = e.clientX + 'px';
-      glow.style.top = e.clientY + 'px';
-    });
-  }
-
   // --- Nav scroll state ---
   var nav = document.querySelector('.nav');
 
@@ -152,11 +143,9 @@
     if (e.key === 'ArrowLeft') { navigateLightbox('prev'); e.preventDefault(); }
   });
 
-  // Open lightbox on card click
+  // Open lightbox on card click — anywhere on the card
   document.querySelectorAll('.project').forEach(function (card) {
     card.addEventListener('click', function (e) {
-      // Don't open lightbox if clicking on an anchor link inside
-      if (e.target.closest('a')) return;
       var projectNum = card.getAttribute('data-project');
       openLightbox(parseInt(projectNum, 10));
     });
