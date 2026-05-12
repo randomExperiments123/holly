@@ -6,7 +6,9 @@ Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 
 
 **URL:** hollymatthews.co.uk  
 **Stack:** Vanilla HTML / CSS / JS — zero dependencies or build tools  
-**Hosting:** Static (GitHub Pages or equivalent)
+**Hosting:** Static (GitHub Pages or equivalent)  
+**Approach:** Mobile-first — base styles target small screens, `min-width` breakpoints enhance upward. Touch interactions are primary; desktop hover/ keyboard are progressive enhancements.  
+**SEO:** High priority — semantic HTML, structured data, meta tags, performance optimization, accessibility all serve search visibility.
 
 ---
 
@@ -14,9 +16,9 @@ Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 
 
 | Section | Contents |
 |---|---|
-| **Hero** | Full-viewport header. Fixed nav (HM logo, Work/About/Contact links). Eyebrow, name, tagline, 2 CTA buttons. Bottom marquee ticker. |
+| **Hero** | Full-viewport header. Sticky nav (HM logo, Work/About/Contact links). Eyebrow, name, tagline, 2 full-width CTA buttons (stacked on mobile, inline on desktop). Bottom marquee ticker. |
 | **Intro** | Section eyebrow + heading: "A curated collection of projects..." |
-| **Projects** | CSS grid of 5 cards (auto-fill, min 360px, max 1280px wrapper). Single column ≤768px. |
+| **Projects** | Single-column stack on mobile. Multi-column CSS grid (`auto-fill, min 360px`) at wider viewports. Max 1280px wrapper. |
 | **About** | Centered heading, bio text, CTA button. |
 | **Lightbox** | Fixed fullscreen overlay. Opens on card click. Closes on backdrop click, Escape key, or × button. |
 | **Footer** | Copyright + email link. |
@@ -45,7 +47,7 @@ Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 
 ### Spacing
 - Border radius: 16px (cards), 10px (small), 50px (buttons)
 - Max content width: 1280px (projects), 720px (hero/intro), 680px (about)
-- Site padding: 2.5rem sides (1.25rem ≤768px)
+- Site padding: 1.25rem sides on mobile, 2.5rem on wider viewports
 
 ### Cursor
 - Custom gold (`#e8a838`) SVG arrow cursor on all elements
@@ -57,32 +59,37 @@ Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 
 ## 4. Components
 
 ### Navigation
-- Fixed, 40% opaque bg + backdrop-blur initially
+- Sticky, compact padding on mobile, larger padding on desktop
+- 40% opaque bg + backdrop-blur initially
 - `.scrolled` class at scroll >80px: 85% opaque bg + border-bottom
-- Logo: Playfair Display, no hover effect
-- Links: uppercase, muted → white on hover, underline animation via `::after`
+- Logo: Playfair Display
+- Links: uppercase, tap target minimum 44×44px on mobile, underline animation via `::after` on hover
 
 ### Project Card
-- Click anywhere → opens lightbox
-- Hover: translateY(-4px), glow border via `::after` inset, image scales 1.03x, glow sweep across image
+- Tap/click anywhere → opens lightbox
+- Single column full-width on mobile; grid layout on wider screens
 - 3 slides per project (AVIF, 1650×1275, lazy-loaded)
 - Slide counter badge (top-right, blurred bg, accent current number)
-- Keyboard: Left/Right arrows cycle slides when `.project-images` is focused
-- Staggered fade-in via IntersectionObserver (threshold 0.08, rootMargin -40px)
+- Touch swipe on image area cycles slides
+- Keyboard: Left/Right arrows cycle slides when focused
+- Staggered fade-in via IntersectionObserver (threshold 0.08)
+- Desktop hover enhancement: translateY(-4px), glow border, image scale 1.03x
 
 ### Buttons (`.btn-primary`, `.btn-ghost`)
+- Full-width on mobile, inline on desktop
 - Pill-shaped (50px radius), inline-flex with icon gap
-- Primary: gradient gold/orange, hover lift + stronger shadow
-- Ghost: bordered, hover fills accent glow
-- Click ripple effect (`.ripple` span with scale-out animation)
+- Minimum tap target 44×44px
+- Primary: gradient gold/orange, hover lift + stronger shadow (desktop)
+- Ghost: bordered, hover fills accent glow (desktop)
+- Tap/click ripple effect (`.ripple` span with scale-out animation)
 - Active state: scale(0.97)
 
 ### Lightbox
 | Aspect | Detail |
 |---|---|
 | Open | Click any `.project` card |
-| Close | × button, backdrop click, Escape key |
-| Navigate | Prev/Next buttons, Left/Right arrow keys, touch swipe (>50px delta) |
+| Close | × button (top-right, 44×44px min target), backdrop tap, Escape key |
+| Navigate | Prev/Next buttons, Left/Right arrow keys, touch swipe (>50px delta). Nav buttons larger on mobile for easy tapping. |
 | Slides | Cloned from source project on open, rebuilt each time |
 | Animation | Direction-aware: prev slides offset -8%, next slides +8% |
 | Counter | Bottom-center pill: "1 / 3" |
@@ -124,7 +131,40 @@ Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 
 
 ---
 
-## 7. Accessibility
+## 7. SEO Strategy
+
+### On-Page
+| Factor | Implementation |
+|---|---|
+| **Title tag** | Descriptive, includes name + "Portfolio" |
+| **Meta description** | Unique, includes keywords (designer, portfolio, graphic design) |
+| **Semantic HTML** | `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>` provide clear document outline |
+| **Heading hierarchy** | Single `<h1>`, `<h2>` per section, `<h3>` per project card |
+| **Image alt text** | Descriptive, unique per image (overview, detail, final) |
+| **Open Graph** | `og:title`, `og:description`, `og:type` set for social share previews |
+| **Canonical URL** | Via CNAME + potential `<link rel="canonical">` |
+| **Favicon** | Present (inline SVG) |
+
+### Structured Data
+- `itemscope itemtype="https://schema.org/VisualArtwork"` on each project card
+- Schema markup for name, description, and image per project
+
+### Technical SEO
+| Factor | Implementation |
+|---|---|
+| **Page speed** | Zero dependencies, no render-blocking resources beyond fonts + single CSS, AVIF images, `loading="lazy"` on all images, preload on first hero image |
+| **Core Web Vitals** | Minimal CLS (explicit image dimensions 1650×1275), fast LCP (preloaded hero image), responsive layout |
+| **Mobile-friendliness** | Mobile-first CSS, touch targets ≥44×44px, responsive images |
+| **Crawlability** | All content is static HTML — no JS required for indexing. Links are real `<a href>` elements. |
+| **Robots** | `robots.txt` should be added to allow crawling |
+| **Sitemap** | `sitemap.xml` should be added for single-page site |
+
+### Content
+- Keyword-rich headings and body copy (e.g. "brand identity systems", "editorial design", "motion design")
+- Footer includes email as visible text (not just an icon)
+- Downloadable PDF portfolio adds value for both users and search engines
+
+## 8. Accessibility
 
 - Skip link (hidden, appears on focus)
 - Semantic landmarks: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`
@@ -136,18 +176,21 @@ Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 
 
 ---
 
-## 8. Responsive
+## 9. Responsive (Mobile-First)
+
+Base styles target the smallest viewport. Enhancements applied via `min-width` breakpoints.
 
 | Breakpoint | Key changes |
 |---|---|
-| ≤768px | Grid → 1 column, reduced padding, footer stacks, lightbox 4:3 |
-| ≤480px | Smaller hero title/subtitle, smaller nav text |
-| Print | White bg, black text, hide nav/marquee/shimmer |
-| Reduced motion | All animations off, all reveals visible immediately |
+| **Base (mobile, <480px)** | Single-column layout, compact padding (1.25rem sides), stacked full-width buttons, smaller hero title (2.5rem), smaller nav text (0.75rem), lightbox nav buttons larger for touch |
+| **≥480px** | Hero title scales up (clamp), hero sub scales up (1.1rem), nav text returns to 0.85rem |
+| **≥768px (tablet)** | Multi-column grid activates, site padding increases (2.5rem sides), footer row layout, lightbox track returns to original aspect-ratio |
+| **Print** | White bg, black text, hide nav/marquee/shimmer |
+| **Reduced motion** | All animations off, all reveals visible immediately |
 
 ---
 
-## 9. File Structure
+## 10. File Structure
 
 ```
 index.html           — Single-page HTML
@@ -166,7 +209,17 @@ favicon              — Inline SVG emoji (🎨)
 
 ---
 
-## 10. Edge Cases & States
+## 11. Mobile-First Considerations
+
+- **Touch targets:** All interactive elements ≥44×44px per WCAG 2.5.5
+- **Hover features are progressive:** Card lifts, glow sweeps, underline animations are wrapped in `@media (hover: hover)` to avoid sticky-hover bugs on touch devices
+- **Scroll-triggered reveals:** Threshold accounts for mobile viewport; elements reveal earlier (`0.88 * windowH`) to compensate for shorter screens
+- **Lightbox swipe:** Native touch handling with 50px delta threshold — no gesture library needed
+- **Images:** Lazy-loaded by default; first project image preloaded for immediate LCP
+- **No hamburger menu:** Nav links are few (3 items), fit inline even at the smallest viewport
+- **Buttons stack vertically** on mobile (flex-wrap with gap) to avoid overflow
+
+## 12. Edge Cases & States
 
 - **Loading:** Lazy images show nothing until loaded (no skeleton/placeholder)
 - **Empty:** N/A — content is static HTML
