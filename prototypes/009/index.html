@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holly Matthews — Design</title>
+<meta name="description" content="Holly Matthews — graphic design portfolio. Bauhaus-inspired geometric design.">
+<meta property="og:title" content="Holly Matthews — Design">
+<meta property="og:description" content="Portfolio of Holly Matthews, graphic design student.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23e30613'/></svg>">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:#f5f2eb;color:#1a1a1a;overflow-x:hidden;line-height:1.4}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.skip-link{position:absolute;top:-100%;left:0;z-index:100;padding:12px 24px;background:#e30613;color:#fff;font-weight:600}
+.skip-link:focus{top:0}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:#f5f2eb;border-bottom:3px solid #1a1a1a}
+.nav-logo{font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;padding:4px 12px;background:#e30613;color:#fff}
+.nav-links{display:flex;gap:16px}
+.nav-link{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#666;transition:color .2s}
+.nav-link:hover{color:#e30613}
+.hero{min-height:90vh;display:grid;grid-template-columns:1fr 1fr;position:relative}
+@media(max-width:768px){.hero{grid-template-columns:1fr}}
+.hero-left{padding:120px 24px 60px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero-left::before{content:'';position:absolute;top:60px;left:24px;width:60px;height:60px;border-radius:50%;background:rgba(227,6,19,.1)}
+.hero-left::after{content:'';position:absolute;bottom:40px;right:24px;width:40px;height:40px;background:#ffd700;transform:rotate(45deg)}
+.hero-right{background:#1a1a1a;color:#f5f2eb;padding:120px 24px 60px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero-right::before{content:'';position:absolute;top:40px;right:40px;width:80px;height:80px;border:4px solid #e30613;border-radius:50%}
+@media(max-width:768px){.hero-right::before{display:none}}
+.hero-eyebrow{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:#e30613;margin-bottom:8px}
+.hero-title{font-size:clamp(40px,8vw,80px);font-weight:700;line-height:.9;letter-spacing:-.04em;text-transform:uppercase;margin-bottom:12px}
+.hero-sub{font-size:15px;color:#666;line-height:1.5;margin-bottom:32px;max-width:400px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:6px;padding:12px 28px;background:#e30613;color:#fff;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;border:none;cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-primary:hover{background:#1a1a1a}
+.btn-ghost{display:inline-flex;align-items:center;gap:6px;padding:12px 28px;background:transparent;color:#1a1a1a;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;border:2px solid #1a1a1a;cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-ghost:hover{background:#1a1a1a;color:#fff}
+.hero-right .btn-ghost{color:#f5f2eb;border-color:#f5f2eb}
+.hero-right .btn-ghost:hover{background:#f5f2eb;color:#1a1a1a}
+.section{padding:80px 24px;position:relative}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-top{display:flex;align-items:center;gap:16px;margin-bottom:40px}
+.section-shape{width:32px;height:32px;background:#e30613;transform:rotate(45deg);flex-shrink:0}
+.section-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:#e30613}
+.section-title{font-size:clamp(28px,5vw,52px);font-weight:700;text-transform:uppercase;letter-spacing:-.03em;line-height:1.05;margin-top:4px}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+@media(max-width:768px){.projects-grid{grid-template-columns:1fr}}
+.project{background:#fff;border:3px solid #1a1a1a;cursor:pointer;transition:all .2s;position:relative}
+.project::after{content:'';position:absolute;top:8px;left:8px;width:100%;height:100%;background:rgba(227,6,19,.08);z-index:-1;transition:all .2s}
+.project:hover::after{top:4px;left:4px}
+.project:hover{transform:translate(-2px,-2px)}
+.project-image-area{position:relative;overflow:hidden;aspect-ratio:4/3;border-bottom:3px solid #1a1a1a}
+.project-slides{display:flex;transition:transform .3s;height:100%}
+.project-slide{flex:0 0 100%;width:100%;height:100%;object-fit:cover}
+.project-counter{position:absolute;bottom:8px;right:8px;background:#1a1a1a;color:#f5f2eb;font-size:11px;font-weight:600;padding:4px 10px}
+.project-number{position:absolute;top:8px;left:8px;background:#e30613;color:#fff;font-size:11px;font-weight:700;padding:4px 10px;z-index:2}
+.project-info{padding:16px 20px}
+.project-title{font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:4px}
+.project-desc{font-size:13px;color:#666;line-height:1.5}
+.about-section{background:#fff;border-top:3px solid #1a1a1a;border-bottom:3px solid #1a1a1a}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr}}
+.about-text{font-size:15px;color:#666;line-height:1.7;margin-bottom:16px}
+.skills{display:flex;flex-wrap:wrap;gap:8px}
+.skill{padding:6px 16px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;border:2px solid #1a1a1a;transition:all .2s}
+.skill:hover{background:#e30613;border-color:#e30613;color:#fff}
+.contact-section{background:#1a1a1a;color:#f5f2eb;text-align:center;border-top:3px solid #e30613}
+.contact-section .section-label{color:#ffd700}
+.contact-section .section-shape{background:#ffd700}
+.contact-card{padding:60px 40px;border:3px solid #f5f2eb;max-width:600px;margin:0 auto}
+.contact-card h3{font-size:28px;font-weight:700;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:12px}
+.contact-card p{color:#999;font-size:15px;margin-bottom:28px;line-height:1.5}
+.footer{padding:24px;text-align:center;background:#1a1a1a;color:#666;font-size:12px;border-top:1px solid #333}
+.footer a{color:#ffd700}
+.lightbox{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s}
+.lightbox[data-state=open]{opacity:1;pointer-events:auto}
+.lightbox-backdrop{position:absolute;inset:0;background:rgba(26,26,26,.95)}
+.lightbox-inner{position:relative;max-width:90vw;max-height:90vh;display:flex;flex-direction:column;align-items:center;z-index:1;border:3px solid #e30613;background:#1a1a1a;padding:12px}
+.lightbox-close{position:fixed;top:16px;right:16px;width:44px;height:44px;background:#e30613;color:#fff;font-size:20px;font-weight:700;border:none;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center}
+.lightbox-close:hover{background:#ffd700;color:#1a1a1a}
+.lightbox-nav{position:fixed;top:50%;transform:translateY(-50%);width:44px;height:44px;background:#e30613;color:#fff;font-size:18px;font-weight:700;border:none;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center}
+.lightbox-prev{left:16px}.lightbox-next{right:16px}
+.lightbox-nav:hover{background:#ffd700;color:#1a1a1a}
+.lightbox-track{max-width:100%;max-height:80vh;overflow:hidden}
+.lightbox-track img{max-width:100%;max-height:80vh;object-fit:contain}
+.lightbox-counter{color:#999;font-size:12px;font-weight:600;margin-top:12px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">SKIP</a>
+<nav class="nav"><a href="#" class="nav-logo">HM</a><div class="nav-links"><a href="#work" class="nav-link">Projects</a><a href="#about" class="nav-link">About</a><a href="#contact" class="nav-link">Contact</a></div></nav>
+<main id="main">
+<section class="hero"><div class="hero-left"><p class="hero-eyebrow">Portfolio 2026</p><h1 class="hero-title">Holly<br>Matthews</h1><p class="hero-sub">Graphic design student working across brand identity, editorial, motion, packaging, and illustration.</p><div class="hero-actions"><a href="#work" class="btn-primary">Projects</a><a href="HollyMatthewsPortfolio.pdf" class="btn-ghost" download>Portfolio</a></div></div><div class="hero-right"><p style="font-size:72px;font-weight:700;line-height:.8;letter-spacing:-.04em;margin-bottom:16px">5</p><p style="font-size:13px;color:#999;text-transform:uppercase;letter-spacing:.15em;font-weight:500">Disciplines<br>One portfolio</p><div style="position:absolute;bottom:24px;right:24px;width:24px;height:24px;background:#ffd700;transform:rotate(45deg)"></div></div></section>
+<section id="work" class="section"><div class="section-inner"><div class="section-top"><div class="section-shape"></div><p class="section-label">Projects</p></div><h2 class="section-title">Selected work</h2><div class="projects-grid">
+<article class="project" data-project="1" itemscope itemtype="https://schema.org/VisualArtwork"><meta itemprop="name" content="Nordica Coffee"><div class="project-image-area" role="button" tabindex="0"><div class="project-slides"><img src="projects/project1/1.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project1/2.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project1/3.avif" alt="" class="project-slide" width="1650" height="1275"></div><div class="project-counter"><span>1</span>/3</div><div class="project-number">01</div></div><div class="project-info"><h3 class="project-title">Nordica Coffee</h3><p class="project-desc">Brand identity for a specialty coffee roaster — logo, packaging, stationery, digital.</p></div></article>
+<article class="project" data-project="2" itemscope itemtype="https://schema.org/VisualArtwork"><meta itemprop="name" content="Urban Perspectives"><div class="project-image-area" role="button" tabindex="0"><div class="project-slides"><img src="projects/project2/1.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project2/2.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project2/3.avif" alt="" class="project-slide" width="1650" height="1275"></div><div class="project-counter"><span>1</span>/3</div><div class="project-number">02</div></div><div class="project-info"><h3 class="project-title">Urban Perspectives</h3><p class="project-desc">Editorial design exploring city life through photography and typography.</p></div></article>
+<article class="project" data-project="3" itemscope itemtype="https://schema.org/VisualArtwork"><meta itemprop="name" content="Motion & Interaction"><div class="project-image-area" role="button" tabindex="0"><div class="project-slides"><img src="projects/project3/1.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project3/2.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project3/3.avif" alt="" class="project-slide" width="1650" height="1275"></div><div class="project-counter"><span>1</span>/3</div><div class="project-number">03</div></div><div class="project-info"><h3 class="project-title">Motion &amp; Interaction</h3><p class="project-desc">UI animation, micro-interactions, and kinetic typography.</p></div></article>
+<article class="project" data-project="4" itemscope itemtype="https://schema.org/VisualArtwork"><meta itemprop="name" content="Botanic"><div class="project-image-area" role="button" tabindex="0"><div class="project-slides"><img src="projects/project4/1.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project4/2.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project4/3.avif" alt="" class="project-slide" width="1650" height="1275"></div><div class="project-counter"><span>1</span>/3</div><div class="project-number">04</div></div><div class="project-info"><h3 class="project-title">Botanic</h3><p class="project-desc">Sustainable packaging design for a botanical skincare range.</p></div></article>
+<article class="project" data-project="5" itemscope itemtype="https://schema.org/VisualArtwork"><meta itemprop="name" content="Dreamscapes"><div class="project-image-area" role="button" tabindex="0"><div class="project-slides"><img src="projects/project5/1.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project5/2.avif" alt="" class="project-slide" width="1650" height="1275"><img src="projects/project5/3.avif" alt="" class="project-slide" width="1650" height="1275"></div><div class="project-counter"><span>1</span>/3</div><div class="project-number">05</div></div><div class="project-info"><h3 class="project-title">Dreamscapes</h3><p class="project-desc">Surreal digital illustrations blending photography and vector art.</p></div></article>
+</div></div></section>
+<section id="about" class="section about-section"><div class="section-inner"><div class="section-top"><div class="section-shape"></div><p class="section-label">About</p></div><h2 class="section-title">Form &amp; function</h2><div class="about-grid"><div><p class="about-text">I'm a graphic design student passionate about brand storytelling, editorial craft, and purposeful design. I believe every element should earn its place.</p><p class="about-text">Five projects. Five disciplines. Currently seeking placement and freelance opportunities.</p><a href="HollyMatthewsPortfolio.pdf" class="btn-primary" download>Download</a></div><div><div class="skills"><span class="skill">Brand ID</span><span class="skill">Logo</span><span class="skill">Typography</span><span class="skill">Editorial</span><span class="skill">Motion</span><span class="skill">UI</span><span class="skill">Packaging</span><span class="skill">Illustration</span><span class="skill">Adobe CS</span><span class="skill">Figma</span></div></div></div></div></section>
+<section id="contact" class="section contact-section"><div class="section-inner"><div class="section-top" style="justify-content:center"><div class="section-shape"></div><p class="section-label">Contact</p></div><h2 class="section-title">Let's build</h2><div class="contact-card"><h3>Get in touch</h3><p>Looking for placement opportunities and freelance projects. Let's make something together.</p><a href="mailto:info@hollymatthews.co.uk" class="btn-primary">info@hollymatthews.co.uk →</a></div></div></section>
+</main>
+<footer class="footer"><p>&copy; 2026 Holly Matthews — <a href="mailto:info@hollymatthews.co.uk">info@hollymatthews.co.uk</a></p></footer>
+<div class="lightbox" data-state="closed"><div class="lightbox-backdrop"></div><div class="lightbox-inner"><button class="lightbox-close">&times;</button><button class="lightbox-nav lightbox-prev">←</button><button class="lightbox-nav lightbox-next">→</button><div class="lightbox-track"></div><div class="lightbox-counter">1/3</div></div></div>
+<script>(function(){'use strict';var lb=document.querySelector('.lightbox'),backdrop=lb.querySelector('.lightbox-backdrop'),closeBtn=lb.querySelector('.lightbox-close'),prevBtn=lb.querySelector('.lightbox-prev'),nextBtn=lb.querySelector('.lightbox-next'),track=lb.querySelector('.lightbox-track'),counter=lb.querySelector('.lightbox-counter'),projects=document.querySelectorAll('.project'),cP=0,cS=0;projects.forEach(function(p,i){var a=p.querySelector('.project-image-area');if(a){a.addEventListener('click',function(){open(i,0)});a.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(i,0)}})}});function open(p,s){cP=p;cS=s;var sl=projects[p].querySelectorAll('.project-slide');up(sl);lb.setAttribute('data-state','open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+function up(sl){track.innerHTML='';var i=document.createElement('img');i.src=sl[cS].src;i.alt=sl[cS].alt||'';i.loading='eager';track.appendChild(i);counter.textContent=(cS+1)+'/'+sl.length}
+closeBtn.addEventListener('click',function(){lb.setAttribute('data-state','closed');document.body.style.overflow=''});
+backdrop.addEventListener('click',function(){lb.setAttribute('data-state','closed');document.body.style.overflow=''});
+prevBtn.addEventListener('click',function(){var sl=projects[cP].querySelectorAll('.project-slide');cS=(cS-1+sl.length)%sl.length;up(sl)});
+nextBtn.addEventListener('click',function(){var sl=projects[cP].querySelectorAll('.project-slide');cS=(cS+1)%sl.length;up(sl)});
+document.addEventListener('keydown',function(e){if(lb.getAttribute('data-state')!=='open')return;if(e.key==='Escape')closeBtn.click();if(e.key==='ArrowLeft')prevBtn.click();if(e.key==='ArrowRight')nextBtn.click()})})();</script>
+</body>
+</html>

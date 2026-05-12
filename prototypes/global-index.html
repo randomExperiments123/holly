@@ -3,111 +3,101 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Holly Matthews — Prototype Browser</title>
-<meta name="description" content="Portfolio prototypes for Holly Matthews — browse 50+ unique designs">
+<title>Holly Matthews — Prototypes</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;padding:40px 24px;min-height:100vh}
-h1{font-size:clamp(28px,4vw,48px);font-weight:700;margin-bottom:8px;letter-spacing:-.03em}
-.sub{color:#6e6e73;font-size:16px;margin-bottom:40px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.card{background:#1a1a1a;border-radius:14px;overflow:hidden;border:1px solid #2a2a2a;transition:all .3s;display:flex;flex-direction:column}
-.card:hover{transform:translateY(-4px);border-color:#3a3a3a;box-shadow:0 12px 40px rgba(0,0,0,.4)}
-.card-preview{height:140px;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;overflow:hidden}
-.card-preview .num{font-size:72px;font-weight:900;opacity:.1;position:absolute;right:-8px;bottom:-12px;color:#fff}
-.card-body{padding:16px;flex:1;display:flex;flex-direction:column}
-.card-title{font-size:15px;font-weight:600;margin-bottom:4px}
-.card-desc{font-size:12px;color:#6e6e73;margin-bottom:12px;flex:1;line-height:1.4}
-.card-link{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;background:#2a2a2a;color:#fff;font-size:13px;font-weight:500;text-decoration:none;transition:all .2s;align-self:flex-start}
-.card-link:hover{background:#3a3a3a}
-.footer-info{margin-top:40px;padding-top:20px;border-top:1px solid #2a2a2a;font-size:12px;color:#6e6e73}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#fff;padding:40px 24px}
+h1{font-size:24px;margin-bottom:4px}
+.sub{color:#666;font-size:13px;margin-bottom:32px}
+a{color:#888;text-decoration:none;font-size:13px;transition:color .15s;display:block;padding:3px 0}
+a:hover{color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:2px}
+.group{margin-bottom:24px}
+.group h2{font-size:11px;color:#444;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;border-bottom:1px solid #1a1a1a;padding-bottom:4px}
 </style>
 </head>
 <body>
-
 <h1>Holly Matthews</h1>
-<p class="sub">Portfolio Prototypes — <span id="count">0</span> unique designs</p>
+<p class="sub">50 Portfolio Prototypes</p>
 
-<div class="grid" id="grid">
-
-  <div class="card">
-    <div class="card-preview" style="background:linear-gradient(135deg,#000,#1a1a1a)"><span class="num">001</span>🍎</div>
-    <div class="card-body">
-      <div class="card-title">001 — Apple Minimalist</div>
-      <div class="card-desc">Clean, product-style design inspired by apple.com. Dark hero, white content, SF typography.</div>
-      <a class="card-link" href="001/index.html" target="_blank" rel="noopener">Open →</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-preview" style="background:linear-gradient(135deg,#0a0a2e,#1a0a3e)"><span class="num">002</span>✦</div>
-    <div class="card-body">
-      <div class="card-title">002 — Antigravity Playful</div>
-      <div class="card-desc">Playful, gravity-defying design inspired by antigravity.google. Floating elements, bold gradients.</div>
-      <a class="card-link" href="002/index.html" target="_blank" rel="noopener">Open →</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-preview" style="background:linear-gradient(135deg,#667eea,#764ba2)"><span class="num">003</span>◇</div>
-    <div class="card-body">
-      <div class="card-title">003 — Glassmorphism</div>
-      <div class="card-desc">Frosted glass panels with vibrant purple-blue gradients and backdrop blur effects.</div>
-      <a class="card-link" href="003/index.html" target="_blank" rel="noopener">Open →</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-preview" style="background:linear-gradient(135deg,#faf0f5,#fff0f5)"><span class="num">004</span>✿</div>
-    <div class="card-body">
-      <div class="card-title">004 — Feminine Elegance</div>
-      <div class="card-desc">Soft, elegant design with rose tones, Playfair Display serif typography, and delicate flourishes.</div>
-      <a class="card-link" href="004/index.html" target="_blank" rel="noopener">Open →</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-preview" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a)"><span class="num">005</span>◆</div>
-    <div class="card-body">
-      <div class="card-title">005 — Dark Neubrutalism</div>
-      <div class="card-desc">Bold, dark neubrutalist design with heavy typography, thick borders, and high contrast.</div>
-      <a class="card-link" href="005/index.html" target="_blank" rel="noopener">Open →</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-preview" style="background:linear-gradient(135deg,#fff,#f5f5f5)"><span class="num">006</span>■</div>
-    <div class="card-body">
-      <div class="card-title">006 — Swiss International</div>
-      <div class="card-desc">Swiss/International style with strict grids, red accents, Helvetica-like typography, and objective presentation.</div>
-      <a class="card-link" href="006/index.html" target="_blank" rel="noopener">Open →</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-preview" style="background:linear-gradient(135deg,#f5f0eb,#fff)"><span class="num">007</span>○</div>
-    <div class="card-body">
-      <div class="card-title">007 — Japanese Minimal</div>
-      <div class="card-desc">Zen-inspired minimalism with Noto Serif JP, warm paper tones, vermilion accents, and generous negative space.</div>
-      <a class="card-link" href="007/index.html" target="_blank" rel="noopener">Open →</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-preview" style="background:linear-gradient(135deg,#0a0a2e,#2a0a3e)"><span class="num">008</span>🌴</div>
-    <div class="card-body">
-      <div class="card-title">008 — Retro Vaporwave</div>
-      <div class="card-desc">80s/90s vaporwave aesthetic with neon pink and blue gradients, retro grid, scanlines, and Orbitron typography.</div>
-      <a class="card-link" href="008/index.html" target="_blank" rel="noopener">Open →</a>
-    </div>
-  </div>
-
+<div class="group">
+<h2>001-010</h2>
+<div class="grid">
+<a href="001/index.html" target="_blank">001 — Apple Minimalist</a>
+<a href="002/index.html" target="_blank">002 — Antigravity Playful</a>
+<a href="003/index.html" target="_blank">003 — Glassmorphism</a>
+<a href="004/index.html" target="_blank">004 — Feminine Elegance</a>
+<a href="005/index.html" target="_blank">005 — Dark Neubrutalism</a>
+<a href="006/index.html" target="_blank">006 — Swiss International</a>
+<a href="007/index.html" target="_blank">007 — Japanese Minimal</a>
+<a href="008/index.html" target="_blank">008 — Retro Vaporwave</a>
+<a href="009/index.html" target="_blank">009 — Bauhaus Geometric</a>
+<a href="010/index.html" target="_blank">010 — Magazine Editorial</a>
+</div>
 </div>
 
-<div class="footer-info">
-  <p>Each prototype is self-contained and deployable independently.</p>
+<div class="group">
+<h2>011-020</h2>
+<div class="grid">
+<a href="011/index.html" target="_blank">011 — Cyberpunk</a>
+<a href="012/index.html" target="_blank">012 — Brutalist</a>
+<a href="013/index.html" target="_blank">013 — Nature Organic</a>
+<a href="014/index.html" target="_blank">014 — Art Deco</a>
+<a href="015/index.html" target="_blank">015 — Memphis Milano</a>
+<a href="016/index.html" target="_blank">016 — Scandinavian</a>
+<a href="017/index.html" target="_blank">017 — Dark Academia</a>
+<a href="018/index.html" target="_blank">018 — Modern Tech</a>
+<a href="019/index.html" target="_blank">019 — Pop Art</a>
+<a href="020/index.html" target="_blank">020 — Monochrome</a>
+</div>
 </div>
 
-<script>document.getElementById('count').textContent=document.querySelectorAll('.card').length</script>
+<div class="group">
+<h2>021-030</h2>
+<div class="grid">
+<a href="021/index.html" target="_blank">021 — Gradient Mesh</a>
+<a href="022/index.html" target="_blank">022 — Luxury Gold</a>
+<a href="023/index.html" target="_blank">023 — Eco Green</a>
+<a href="024/index.html" target="_blank">024 — Street Art</a>
+<a href="025/index.html" target="_blank">025 — Space Cosmic</a>
+<a href="026/index.html" target="_blank">026 — Typography Hero</a>
+<a href="027/index.html" target="_blank">027 — Glitch</a>
+<a href="028/index.html" target="_blank">028 — Corporate Clean</a>
+<a href="029/index.html" target="_blank">029 — Neon Noir</a>
+<a href="030/index.html" target="_blank">030 — 8-Bit Pixel</a>
+</div>
+</div>
+
+<div class="group">
+<h2>031-040</h2>
+<div class="grid">
+<a href="031/index.html" target="_blank">031 — Watercolor</a>
+<a href="032/index.html" target="_blank">032 — Industrial</a>
+<a href="033/index.html" target="_blank">033 — Romantic</a>
+<a href="034/index.html" target="_blank">034 — Sci-Fi Futuristic</a>
+<a href="035/index.html" target="_blank">035 — Tropical</a>
+<a href="036/index.html" target="_blank">036 — Winter Ice</a>
+<a href="037/index.html" target="_blank">037 — Modernist Grid</a>
+<a href="038/index.html" target="_blank">038 — Cottagecore</a>
+<a href="039/index.html" target="_blank">039 — Tech Noir</a>
+<a href="040/index.html" target="_blank">040 — Abstract</a>
+</div>
+</div>
+
+<div class="group">
+<h2>041-050</h2>
+<div class="grid">
+<a href="041/index.html" target="_blank">041 — Zen Calm</a>
+<a href="042/index.html" target="_blank">042 — Maximalist</a>
+<a href="043/index.html" target="_blank">043 — Steampunk</a>
+<a href="044/index.html" target="_blank">044 — Digital AI</a>
+<a href="045/index.html" target="_blank">045 — Bauhaus Vol 2</a>
+<a href="046/index.html" target="_blank">046 — Gothic</a>
+<a href="047/index.html" target="_blank">047 — Mid-Century</a>
+<a href="048/index.html" target="_blank">048 — Tribal</a>
+<a href="049/index.html" target="_blank">049 — Candy Pastel</a>
+<a href="050/index.html" target="_blank">050 — Celebration</a>
+</div>
+</div>
 </body>
 </html>
