@@ -153,7 +153,12 @@ Single-page portfolio for Holly Matthews, a graphic design student. Showcases 5 
 index.html           — Single-page HTML
 style.css            — All styles (1069 lines, no framework)
 script.js            — All JS (230 lines, vanilla, IIFE)
-images/              — 15 AVIF images (project-{1-5}-{1-3}.avif)
+images/
+  project-1/         — project-1-1.avif, project-1-2.avif, project-1-3.avif
+  project-2/         — project-2-1.avif, project-2-2.avif, project-2-3.avif
+  project-3/         — project-3-1.avif, project-3-2.avif, project-3-3.avif
+  project-4/         — project-4-1.avif, project-4-2.avif, project-4-3.avif
+  project-5/         — project-5-1.avif, project-5-2.avif, project-5-3.avif
 HollyMatthewsPortfolio.pdf  — Downloadable portfolio PDF
 CNAME                — Custom domain: hollymatthews.co.uk
 favicon              — Inline SVG emoji (🎨)
