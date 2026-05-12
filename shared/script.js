@@ -143,12 +143,12 @@
     if (e.key === 'ArrowLeft') { navigateLightbox('prev'); e.preventDefault(); }
   });
 
-  // Open lightbox on card click — anywhere on the card
-  document.querySelectorAll('.project').forEach(function (card) {
-    card.addEventListener('click', function (e) {
-      var projectNum = card.getAttribute('data-project');
-      openLightbox(parseInt(projectNum, 10));
-    });
+  // Open lightbox on card click — event delegation on parent
+  document.querySelector('.projects').addEventListener('click', function (e) {
+    var card = e.target.closest('.project');
+    if (!card) return;
+    var projectNum = card.getAttribute('data-project');
+    openLightbox(parseInt(projectNum, 10));
   });
 
   // Touch swipe support for lightbox
