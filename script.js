@@ -111,7 +111,8 @@
     lightboxTrack.innerHTML = '';
     sourceSlides.forEach(function (src, i) {
       var clone = src.cloneNode(true);
-      clone.classList.remove('active');
+      clone.classList.remove('slide');
+      clone.classList.add('lightbox-slide');
       if (i === currentIndex) clone.classList.add('active');
       lightboxTrack.appendChild(clone);
     });
