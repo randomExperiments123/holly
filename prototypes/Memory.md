@@ -62,7 +62,7 @@ All 50 prototypes complete ✅
 All 50 prototypes created. Next actions:
 - Review and polish individual prototypes
 - Add more prototypes (051+) if needed
-- Deploy global-index.html to share all prototypes
+- Root index.html lists all prototypes (links use `prototypes/` prefix)
 
 ## Quick Commands
 ```bash

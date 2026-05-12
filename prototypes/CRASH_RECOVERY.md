@@ -67,7 +67,7 @@ Never use 2-digit (`01`, `02`) or no-padding (`1`, `2`).
 # Update tracking
 # Edit prototypes/Memory.md to mark as ✅
 
-# Update global-index.html with new link
+# Update root index.html with new link (use `prototypes/XXX/` prefix in href)
 
 # Commit
 git add -A

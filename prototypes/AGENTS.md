@@ -10,7 +10,7 @@
    - `PRD.md` — product requirements document for this prototype
    - `Design.md` — design decisions document
 3. After creating, update `prototypes/Memory.md` with completion status
-4. Update `prototypes/global-index.html` to add a link to the new prototype
+4. Update root `index.html` to add a link to the new prototype (with `prototypes/` prefix in the href)
 5. Run `git add -A && git commit -m "prototype XXX: <description>"` after each prototype
 
 ## Design Constraints
