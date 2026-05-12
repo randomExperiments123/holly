@@ -1,326 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Holly Matthews — Portfolio</title>
-<style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
-    --bg: #0e0e0f;
-    --surface: #161618;
-    --text: #e8e8e8;
-    --muted: #888;
-    --accent: #c9a0ff;
-    --accent-dim: #6b4d94;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.5;
-    overflow-x: hidden;
-  }
-
-  /* — Hero — */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    position: relative;
-  }
-  .hero h1 {
-    font-size: clamp(2.5rem, 8vw, 6rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.05;
-  }
-  .hero h1 span {
-    background: linear-gradient(135deg, var(--accent), #fff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .hero p {
-    margin-top: 1.2rem;
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
-    color: var(--muted);
-    max-width: 520px;
-  }
-  .hero .contact { margin-top: 2rem; }
-  .hero .contact a {
-    color: var(--accent);
-    text-decoration: none;
-    font-size: 1rem;
-    letter-spacing: 0.05em;
-    border: 1px solid var(--accent-dim);
-    padding: 0.6em 1.8em;
-    border-radius: 999px;
-    transition: all .3s;
-    display: inline-block;
-    margin: 0.4rem;
-  }
-  .hero .contact a:hover {
-    background: var(--accent);
-    color: #000;
-  }
-  .dl-btn { border-color: var(--accent) !important; }
-  .scroll-hint {
-    position: absolute;
-    bottom: 2rem;
-    animation: bob 2s ease-in-out infinite;
-    color: var(--muted);
-    font-size: 0.85rem;
-  }
-  @keyframes bob {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(8px); }
-  }
-
-  /* — Section — */
-  .section {
-    padding: 6rem 1.5rem;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-  .section-title {
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--accent);
-    margin-bottom: 3rem;
-    text-align: center;
-  }
-
-  /* — Grid — */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-  .grid-item {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform .35s cubic-bezier(.25,.8,.25,1), box-shadow .35s;
-    background: var(--surface);
-  }
-  .grid-item:hover {
-    transform: translateY(-4px) scale(1.015);
-    box-shadow: 0 20px 60px rgba(0,0,0,.5);
-  }
-  .grid-item picture,
-  .grid-item img {
-    width: 100%;
-    aspect-ratio: 400 / 309;
-    object-fit: cover;
-    display: block;
-    border-radius: 12px;
-  }
-
-  /* — Lightbox — */
-  .lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.92);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity .35s;
-  }
-  .lightbox.active { display: flex; opacity: 1; }
-  .lightbox picture,
-  .lightbox img {
-    max-width: 90vw;
-    max-height: 90vh;
-    border-radius: 12px;
-    box-shadow: 0 30px 80px rgba(0,0,0,.6);
-  }
-  .lightbox .close {
-    position: absolute;
-    top: 1.5rem;
-    right: 2rem;
-    font-size: 2rem;
-    color: #fff;
-    cursor: pointer;
-    background: none;
-    border: none;
-    line-height: 1;
-    transition: color .2s;
-    z-index: 1001;
-  }
-  .lightbox .close:hover { color: var(--accent); }
-  .lightbox .nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2.5rem;
-    color: #fff5;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 1rem;
-    transition: color .2s;
-    user-select: none;
-    z-index: 1001;
-  }
-  .lightbox .nav:hover { color: #fff; }
-  .lightbox .nav.prev { left: 1rem; }
-  .lightbox .nav.next { right: 1rem; }
-  .lightbox .counter {
-    position: absolute;
-    bottom: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--muted);
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-    z-index: 1001;
-  }
-
-  /* — Footer — */
-  footer {
-    text-align: center;
-    padding: 3rem 1rem;
-    color: var(--muted);
-    font-size: 0.85rem;
-    border-top: 1px solid #1f1f22;
-  }
-  footer a { color: var(--accent); text-decoration: none; }
-
-  /* — Responsive — */
-  @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 550px) {
-    .grid { grid-template-columns: 1fr; }
-    .section { padding: 4rem 1rem; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Holly Matthews — Portfolio showcasing 5 design projects.">
+  <meta name="author" content="Holly Matthews">
+  <meta name="keywords" content="designer, portfolio, graphic design, Edinburgh Napier">
+  <meta property="og:title" content="Holly Matthews — Portfolio">
+  <meta property="og:description" content="Portfolio showcasing 5 design projects by Holly Matthews.">
+  <meta property="og:type" content="website">
+  <title>Holly Matthews — Portfolio</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+  <link rel="preload" as="image" href="images/project-1-1.avif" type="image/avif">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- Hero -->
-<section class="hero">
-  <h1><span>Holly Matthews</span></h1>
-  <p>Designer &amp; creative thinker. Explore a curated collection of my work below.</p>
-  <div class="contact">
-    <a href="mailto:info@hollymatthews.co.uk">Get in Touch</a>
-    <a href="designs.pdf" download class="dl-btn">Download PDF</a>
-  </div>
-  <div class="scroll-hint">↓ Scroll to view work</div>
-</section>
+  <header class="hero" role="banner">
+    <div class="hero-inner">
+      <h1>Holly Matthews</h1>
+      <p class="tagline">Designer &amp; Creative Thinker</p>
+      <a href="mailto:info@hollymatthews.co.uk" class="btn-primary">Get in Touch</a>
+    </div>
+  </header>
 
-<!-- Gallery -->
-<section class="section">
-  <h2 class="section-title">Selected Work</h2>
-  <div class="grid" id="grid"></div>
-</section>
+  <main id="main">
+    <section class="intro" aria-label="Introduction">
+      <h2>Selected Work</h2>
+      <p class="intro-text">A curated collection of 5 projects from my time at Edinburgh Napier University — each exploring different facets of design thinking and visual storytelling.</p>
+    </section>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <button class="close" id="lbClose">&times;</button>
-  <button class="nav prev" id="lbPrev">&#10094;</button>
-  <button class="nav next" id="lbNext">&#10095;</button>
-  <picture id="lbPicture">
-    <source id="lbSource" type="image/avif">
-    <img id="lbImg" src="" alt="">
-  </picture>
-  <div class="counter" id="lbCounter"></div>
-</div>
+    <section class="projects" aria-label="Projects">
+      <article class="project" itemscope itemtype="https://schema.org/VisualArtwork">
+        <div class="project-images">
+          <picture><source srcset="images/project-1-1.avif" type="image/avif"><img src="images/project-1-1.avif" alt="Project 1 — overview" loading="lazy" width="1650" height="1275"></picture>
+          <picture><source srcset="images/project-1-2.avif" type="image/avif"><img src="images/project-1-2.avif" alt="Project 1 — detail" loading="lazy" width="1650" height="1275"></picture>
+          <picture><source srcset="images/project-1-3.avif" type="image/avif"><img src="images/project-1-3.avif" alt="Project 1 — final" loading="lazy" width="1650" height="1275"></picture>
+        </div>
+        <div class="project-info">
+          <h3 itemprop="name">Project 1</h3>
+          <p itemprop="description" class="visually-hidden">Design project one from Edinburgh Napier portfolio.</p>
+          <span class="project-meta">Edinburgh Napier University</span>
+        </div>
+      </article>
 
-<!-- Footer -->
-<footer>
-  <p>&copy; 2025 Holly Matthews. All rights reserved.<br>
-  <a href="mailto:info@hollymatthews.co.uk">info@hollymatthews.co.uk</a></p>
-</footer>
+      <article class="project" itemscope itemtype="https://schema.org/VisualArtwork">
+        <div class="project-images">
+          <picture><source srcset="images/project-2-1.avif" type="image/avif"><img src="images/project-2-1.avif" alt="Project 2 — overview" loading="lazy" width="1650" height="1275"></picture>
+          <picture><source srcset="images/project-2-2.avif" type="image/avif"><img src="images/project-2-2.avif" alt="Project 2 — detail" loading="lazy" width="1650" height="1275"></picture>
+          <picture><source srcset="images/project-2-3.avif" type="image/avif"><img src="images/project-2-3.avif" alt="Project 2 — final" loading="lazy" width="1650" height="1275"></picture>
+        </div>
+        <div class="project-info">
+          <h3 itemprop="name">Project 2</h3>
+          <p itemprop="description" class="visually-hidden">Design project two from Edinburgh Napier portfolio.</p>
+          <span class="project-meta">Edinburgh Napier University</span>
+        </div>
+      </article>
 
-<script>
-const thumbs = [
-  'images/avif/page-01_thumb.avif','images/avif/page-02_thumb.avif','images/avif/page-03_thumb.avif',
-  'images/avif/page-04_thumb.avif','images/avif/page-05_thumb.avif','images/avif/page-06_thumb.avif',
-  'images/avif/page-07_thumb.avif','images/avif/page-08_thumb.avif','images/avif/page-09_thumb.avif',
-  'images/avif/page-10_thumb.avif','images/avif/page-11_thumb.avif','images/avif/page-12_thumb.avif',
-  'images/avif/page-13_thumb.avif','images/avif/page-14_thumb.avif','images/avif/page-15_thumb.avif'
-];
+      <article class="project" itemscope itemtype="https://schema.org/VisualArtwork">
+        <div class="project-images">
+          <picture><source srcset="images/project-3-1.avif" type="image/avif"><img src="images/project-3-1.avif" alt="Project 3 — overview" loading="lazy" width="1650" height="1275"></picture>
+          <picture><source srcset="images/project-3-2.avif" type="image/avif"><img src="images/project-3-2.avif" alt="Project 3 — detail" loading="lazy" width="1650" height="1275"></picture>
+          <picture><source srcset="images/project-3-3.avif" type="image/avif"><img src="images/project-3-3.avif" alt="Project 3 — final" loading="lazy" width="1650" height="1275"></picture>
+        </div>
+        <div class="project-info">
+          <h3 itemprop="name">Project 3</h3>
+          <p itemprop="description" class="visually-hidden">Design project three from Edinburgh Napier portfolio.</p>
+          <span class="project-meta">Edinburgh Napier University</span>
+        </div>
+      </article>
 
-const mediums = [
-  'images/avif/page-01_medium.avif','images/avif/page-02_medium.avif','images/avif/page-03_medium.avif',
-  'images/avif/page-04_medium.avif','images/avif/page-05_medium.avif','images/avif/page-06_medium.avif',
-  'images/avif/page-07_medium.avif','images/avif/page-08_medium.avif','images/avif/page-09_medium.avif',
-  'images/avif/page-10_medium.avif','images/avif/page-11_medium.avif','images/avif/page-12_medium.avif',
-  'images/avif/page-13_medium.avif','images/avif/page-14_medium.avif','images/avif/page-15_medium.avif'
-];
+      <article class="project" itemscope itemtype="https://schema.org/VisualArtwork">
+        <div class="project-images">
+          <picture><source srcset="images/project-4-1.avif" type="image/avif"><img src="images/project-4-1.avif" alt="Project 4 — overview" loading="lazy" width="1650" height="1275"></picture>
+          <picture><source srcset="images/project-4-2.avif" type="image/avif"><img src="images/project-4-2.avif" alt="Project 4 — detail" loading="lazy" width="1650" height="1275"></picture>
+          <picture><source srcset="images/project-4-3.avif" type="image/avif"><img src="images/project-4-3.avif" alt="Project 4 — final" loading="lazy" width="1650" height="1275"></picture>
+        </div>
+        <div class="project-info">
+          <h3 itemprop="name">Project 4</h3>
+          <p itemprop="description" class="visually-hidden">Design project four from Edinburgh Napier portfolio.</p>
+          <span class="project-meta">Edinburgh Napier University</span>
+        </div>
+      </article>
 
-const grid = document.getElementById('grid');
-thumbs.forEach((src, i) => {
-  const item = document.createElement('div');
-  item.className = 'grid-item';
-  const picture = document.createElement('picture');
-  const source = document.createElement('source');
-  source.type = 'image/avif';
-  source.srcset = src + ' 1x, ' + src.replace('_thumb','_thumb@2x') + ' 2x';
-  const img = document.createElement('img');
-  img.src = src.replace('.avif','.jpg');
-  img.srcset = src.replace('.avif','.jpg').replace('_thumb','_thumb@2x') + ' 2x';
-  img.alt = 'Design ' + (i + 1);
-  img.loading = 'lazy';
-  img.width = 400;
-  img.height = 500;
-  picture.appendChild(source);
-  picture.appendChild(img);
-  item.appendChild(picture);
-  item.addEventListener('click', () => openLightbox(i));
-  grid.appendChild(item);
-});
+      <article class="project" itemscope itemtype="https://schema.org/VisualArtwork">
+        <div class="project-images">
+          <picture><source srcset="images/project-5-1.avif" type="image/avif"><img src="images/project-5-1.avif" alt="Project 5 — overview" loading="lazy" width="1650" height="1275"></picture>
+          <picture><source srcset="images/project-5-2.avif" type="image/avif"><img src="images/project-5-2.avif" alt="Project 5 — detail" loading="lazy" width="1650" height="1275"></picture>
+          <picture><source srcset="images/project-5-3.avif" type="image/avif"><img src="images/project-5-3.avif" alt="Project 5 — final" loading="lazy" width="1650" height="1275"></picture>
+        </div>
+        <div class="project-info">
+          <h3 itemprop="name">Project 5</h3>
+          <p itemprop="description" class="visually-hidden">Design project five from Edinburgh Napier portfolio.</p>
+          <span class="project-meta">Edinburgh Napier University</span>
+        </div>
+      </article>
+    </section>
+  </main>
 
-let current = 0;
-const lb = document.getElementById('lightbox');
-const lbSource = document.getElementById('lbSource');
-const lbImg = document.getElementById('lbImg');
-const lbCounter = document.getElementById('lbCounter');
-
-function openLightbox(i) {
-  current = i;
-  updateLB();
-  lb.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox() {
-  lb.classList.remove('active');
-  document.body.style.overflow = '';
-}
-function updateLB() {
-  lbSource.srcset = mediums[current] + ' 1x, ' + mediums[current].replace('_medium','_medium@2x') + ' 2x';
-  lbImg.src = mediums[current].replace('.avif','.jpg');
-  lbImg.srcset = mediums[current].replace('.avif','.jpg').replace('_medium','_medium@2x') + ' 2x';
-  lbCounter.textContent = (current + 1) + ' / ' + thumbs.length;
-}
-
-document.getElementById('lbClose').addEventListener('click', closeLightbox);
-document.getElementById('lbPrev').addEventListener('click', () => {
-  current = (current - 1 + thumbs.length) % thumbs.length;
-  updateLB();
-});
-document.getElementById('lbNext').addEventListener('click', () => {
-  current = (current + 1) % thumbs.length;
-  updateLB();
-});
-lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
-document.addEventListener('keydown', e => {
-  if (!lb.classList.contains('active')) return;
-  if (e.key === 'Escape') closeLightbox();
-  if (e.key === 'ArrowLeft') document.getElementById('lbPrev').click();
-  if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
-});
-</script>
+  <footer class="footer" role="contentinfo">
+    <p>© 2026 Holly Matthews. All rights reserved.</p>
+    <a href="mailto:info@hollymatthews.co.uk">info@hollymatthews.co.uk</a>
+  </footer>
 </body>
 </html>
