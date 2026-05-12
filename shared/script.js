@@ -134,13 +134,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var imgs = projectEl.querySelectorAll('.project-slide');
     lightboxTrack.innerHTML = '';
     imgs.forEach(function (img) {
-      var clone = img.cloneNode(true);
-      clone.removeAttribute('loading');
-      clone.style.width = '100%';
-      clone.style.height = '100%';
-      clone.style.objectFit = 'contain';
-      clone.style.flexShrink = '0';
-      lightboxTrack.appendChild(clone);
+      var el = img.cloneNode(true);
+      el.removeAttribute('loading');
+      el.removeAttribute('class');
+      lightboxTrack.appendChild(el);
     });
 
     lightboxCaption.textContent = caption;
@@ -176,12 +173,11 @@ document.addEventListener('DOMContentLoaded', function () {
       var startOffset = direction === -1 ? targetOffset - 8 : targetOffset + 8;
       lightboxTrack.style.transition = 'none';
       lightboxTrack.style.transform = 'translateX(' + startOffset + '%)';
-      requestAnimationFrame(function () {
-        lightboxTrack.style.transition = 'transform 0.35s ease';
-        lightboxTrack.style.transform = 'translateX(' + targetOffset + '%)';
-      });
-    } else {
+      lightboxTrack.offsetHeight;
       lightboxTrack.style.transition = 'transform 0.35s ease';
+      lightboxTrack.style.transform = 'translateX(' + targetOffset + '%)';
+    } else {
+      lightboxTrack.style.transition = 'none';
       lightboxTrack.style.transform = 'translateX(' + targetOffset + '%)';
     }
 
