@@ -70,11 +70,39 @@ Visual specs: see [design.md](design.md) §2.
 ---
 
 ## 5. Interactions
-  
+
+Animation visuals: see [design.md](design.md) §5.
+
+| Interaction | Trigger | Behavior |
+|---|---|---|
+| Nav style | Scroll >80px | `.scrolled` class |
+| Card fade-in | Scroll into viewport | IntersectionObserver adds `.visible` |
+| Element reveal | Scroll | Adds `.visible` when in view |
+| Image hover | Card hover | Scale + shimmer sweep |
+| Button hover | Hover | Lift + shadow |
+| Button click | Click | Ripple wave animation |
+| Lightbox | Card click | Fullscreen overlay, slides cloned from card |
+| Lightbox nav | Arrow keys / buttons / swipe | Direction-aware slide transition |
+| Lightbox close | × / backdrop / Escape | Fade out, restore scroll |
+
+**Revealed elements** (scroll-triggered): `.section-eyebrow`, `.intro h2`, `.intro p`, `.project-number`, `.project-info h3`, `.project-desc`, `.about h2`, `.about-text`, `.footer`
 
 ---
 
-## 6. Images
+## 6. JavaScript
+
+### Principles
+- **Minimal JS:** Only add JS for interactions that cannot be done in CSS. Ripple, scroll reveals, nav scroll state, and lightbox open/close/nav are the only JS-driven features.
+- **Modern syntax:** ES6+ only — `class`, `const`/`let`, arrow functions, template literals, `forEach`, `querySelectorAll`, `IntersectionObserver`. No jQuery or polyfills.
+- **Classes:** Encapsulate related logic in classes. The lightbox should be a `Lightbox` class with `open()`, `close()`, `next()`, `prev()`, and `updateSlide()` methods. Other features can be plain functions or a single `App` init class.
+- **No build step:** Vanilla JS only — no transpilation, bundling, or npm. Ship what you write.
+- **Event delegation:** Use event delegation where possible (e.g., card clicks → lightbox open). Minimize direct listeners.
+- **Passive listeners:** Touch/wheel events use `{ passive: true }` where appropriate.
+- **Memory:** Clean up listeners or observers if elements are removed. The lightbox rebuilds slides on each open (no cached references).
+
+---
+
+## 7. Images
 
 See [design.md](design.md) §3 for image specs.
 
@@ -88,7 +116,7 @@ See [design.md](design.md) §3 for image specs.
 
 ---
 
-## 7. SEO Strategy
+## 8. SEO Strategy
 
 ### On-Page
 | Factor | Implementation |
@@ -121,7 +149,7 @@ See [design.md](design.md) §3 for image specs.
 - Footer includes email as visible text (not just an icon)
 - Downloadable PDF portfolio adds value for both users and search engines
 
-## 8. Accessibility
+## 9. Accessibility
  
 - Semantic landmarks: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`
 - ARIA labels on nav, sections, lightbox (toggles `aria-hidden`)
@@ -132,7 +160,7 @@ See [design.md](design.md) §3 for image specs.
 
 ---
 
-## 9. Responsive (Mobile-First)
+## 10. Responsive (Mobile-First)
 
 Base styles target the smallest viewport. Enhancements applied via `min-width` breakpoints. Visual specs: see [design.md](design.md) §4.
 
@@ -146,7 +174,7 @@ Base styles target the smallest viewport. Enhancements applied via `min-width` b
 
 ---
 
-## 10. File Structure (Vertical Slices)
+## 11. File Structure (Vertical Slices)
 
 ```
 shared/                          ← Global layout, behaviour, utilities
@@ -185,7 +213,7 @@ favicon                          — Inline SVG emoji (🎨)
 
 ---
 
-## 11. Vertical Slice Architecture
+## 12. Vertical Slice Architecture
 
 Each project is a self-contained vertical slice with its own asset directory. This keeps feature boundaries explicit and makes it easy to add, remove, or reorder projects without touching unrelated code.
 
@@ -210,7 +238,7 @@ projects/project3/          ← Entire feature for "Motion & Interaction Design"
 
 The slice contains its images only. Its markup lives in `index.html` under a `<article class="project" data-project="3">`. Global lightbox code in `shared/script.js` handles the interaction generically via `data-project` attributes — no project-specific JS needed.
 
-## 12. Mobile-First Considerations
+## 13. Mobile-First Considerations
 
 - **Touch targets:** All interactive elements ≥44×44px per WCAG 2.5.5
 - **Hover features are progressive:** Card lifts, glow sweeps, underline animations are wrapped in `@media (hover: hover)` to avoid sticky-hover bugs on touch devices
@@ -220,7 +248,7 @@ The slice contains its images only. Its markup lives in `index.html` under a `<a
 - **No hamburger menu:** Nav links are few (3 items), fit inline even at the smallest viewport
 - **Buttons stack vertically** on mobile (flex-wrap with gap) to avoid overflow
 
-## 13. Edge Cases & States
+## 14. Edge Cases & States
 
 - **Loading:** Images load immediately with the page; no skeleton/placeholder
 - **Empty:** N/A — content is static HTML
